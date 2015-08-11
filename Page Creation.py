@@ -19,6 +19,7 @@ isOldPage = False
 
 # enter the title when creating a new page and press submit
 def enter_title(name):
+    WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.NAME, "ctl00$ContentPlaceHolder1$ctl06$txtTitle")))
     nameTextBox = driver.find_element_by_name("ctl00$ContentPlaceHolder1$ctl06$txtTitle")
     WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID, "ctl00_ContentPlaceHolder1_ctl06_txtTitle")))
     nameTextBox.send_keys(name)
@@ -45,6 +46,7 @@ def ext_page(excelLine):
     link = link[1:]
    
     # enter the page name
+    WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.NAME, "ctl00$ContentPlaceHolder1$ctl06$txtTitle")))
     driver.find_element_by_name("ctl00$ContentPlaceHolder1$ctl06$txtTitle").send_keys(name)
     driver.find_element_by_id("ctl00_ContentPlaceHolder1_ctl06_hplGetName").click()
    
@@ -114,8 +116,8 @@ def content_page(url):
 # initial setup: start Firefox and login to website
 driver = webdriver.Firefox()
 driver.get("http://stockton.ss7.sharpschool.com/gateway/Login.aspx?returnUrl=%2fcms%2fOne.aspx%3fportalId%3d462272%26pageId%3d3526277")
-driver.find_element_by_name("ctl00$ContentPlaceHolder1$txtUsername").send_keys("christopher.wong")
-driver.find_element_by_name("ctl00$ContentPlaceHolder1$txtPassword").send_keys(input("password: "))
+driver.find_element_by_name("ctl00$ContentPlaceHolder1$txtUsername").send_keys(input("Username: "))
+driver.find_element_by_name("ctl00$ContentPlaceHolder1$txtPassword").send_keys(input("Password: "))
 driver.find_element_by_name("ctl00$ContentPlaceHolder1$btnLogin").click()
 
 excelLine = "-1"
