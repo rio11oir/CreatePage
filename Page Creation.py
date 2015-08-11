@@ -5,7 +5,7 @@ Created on Fri Jul 31 10:34:51 2015
 @author: christopher.wong, rashad.haque
 """
 
-import BeautifulSoup
+from bs4 import BeautifulSoup
 import pyperclip
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
@@ -19,19 +19,14 @@ isOldPage = False
 
 # enter the title when creating a new page and press submit
 def enter_title(name):
-    testID = getID(driver, "ctl00_ContentPlaceHolder1_ctl00_txtTitle")    
-    WebDriverWait(driver, 10).until(EC.visibility_of_element_located((By.ID, testID)))
-    nameTextBox = driver.find_element_by_id(testID)
-    testID = getID(driver, "ctl00_ContentPlaceHolder1_ctl00_txtTitle")
-    WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID, testID)))
+    nameTextBox = driver.find_element_by_name("ctl00$ContentPlaceHolder1$ctl06$txtTitle")
+    WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID, "ctl00_ContentPlaceHolder1_ctl06_txtTitle")))
     nameTextBox.send_keys(name)
-    testID = getID(driver, "ctl00_ContentPlaceHolder1_ctl00_btnSubmit")
-    driver.find_element_by_id(testID).click()
-    if EC.visibility_of_element_located((By.ID, "ctl00_ContentPlaceHolder1_ctl05_lblError")):
-        driver.find_element_by_title(name).click()
-        global isOldPage
-        isOldPage = True
-
+    driver.find_element_by_name("ctl00$ContentPlaceHolder1$ctl06$btnSubmit").click()
+    #if EC.visibility_of_element_located((By.ID, "ctl00_ContentPlaceHolder1_ctl05_lblError")):
+    #    driver.find_element_by_title(name).click()
+    #    global isOldPage
+    #    isOldPage = True
      
 # Creates an external link page
 # pageType = [0,1,2]: 0 - ext link, 1 - file, 2 - internal page
@@ -50,64 +45,46 @@ def ext_page(excelLine):
     link = link[1:]
    
     # enter the page name
-    testID = getID(driver, "ctl00_ContentPlaceHolder1_ctl00_txtTitle")
-    WebDriverWait(driver, 10).until(EC.visibility_of_element_located((By.ID, testID)))
-    testID = getID(driver, "ctl00_ContentPlaceHolder1_ctl00_txtTitle")
-    driver.find_element_by_id(testID).send_keys(name)
-    testID = getID(driver, "ctl00_ContentPlaceHolder1_ctl00_hplGetName")
-    driver.find_element_by_id(testID).click()
+    driver.find_element_by_name("ctl00$ContentPlaceHolder1$ctl06$txtTitle").send_keys(name)
+    driver.find_element_by_id("ctl00_ContentPlaceHolder1_ctl06_hplGetName").click()
    
-   # 0 - external link
     if pageType == '0':
         # enter the web address
-        testID = getID(driver, "ctl00_ContentPlaceHolder1_ctl00_txtUrl")
-        driver.find_element_by_name(testID).send_keys(link)
-    # 1 - internal file
+        driver.find_element_by_name("ctl00$ContentPlaceHolder1$ctl06$txtUrl").send_keys(link)
     elif pageType == '1':
         # click the 'Browse in File System' button
-        testID = getID(driver, "ctl00_ContentPlaceHolder1_ctl00_rblTypes_1")
-        driver.find_element_by_id(testID).click()
+        driver.find_element_by_id("ctl00_ContentPlaceHolder1_ctl06_rblTypes_1").click()
         # enter the web address
-        testID = getID(driver, "ctl00_ContentPlaceHolder1_ctl00_txtUrl")
-        driver.find_element_by_name(testID).send_keys(link)
-    # 2 - internal page
+        driver.find_element_by_name("ctl00$ContentPlaceHolder1$ctl06$txtUrl").send_keys(link)
     elif pageType == '2':
         # click the 'Browse Internal Pages' button
-        testID = getID(driver, "ctl00_ContentPlaceHolder1_ctl00_rblTypes_2")
-        driver.find_element_by_id(testID).click()
+        driver.find_element_by_id("ctl00_ContentPlaceHolder1_ctl06_rblTypes_2").click()
         # click 'Browse'
-        testID = getID(driver, "ctl00_ContentPlaceHolder1_ctl00_btnBrowse")
-        driver.find_element_by_id(testID).click()
+        driver.find_element_by_id("ctl00_ContentPlaceHolder1_ctl06_btnBrowse").click()
         # switch to the new pop up window
         driver.switch_to_window(driver.window_handles[-1])
         # switch to the frame inside the window
         driver.switch_to.frame("browser")
         # search for the page name and choose the first result which shows up
-        testID = getID(driver, "ctl00_ContentPlaceHolder1_ctl00_txtSearchField")
-        driver.find_element_by_id(testID).send_keys(name)
-        testID = getID(driver, "ctl00_ContentPlaceHolder1_ctl00_btnSearch")
-        driver.find_element_by_id(testID).click()
-        testID = getID(driver, "ctl00_ContentPlaceHolder1_ctl00_gvGridView_ctl02_hplInsert")
-        driver.find_element_by_id(testID).click()
+        driver.find_element_by_id("ctl00_ContentPlaceHolder1_ctl06_txtSearchField").send_keys(name)
+        driver.find_element_by_id("ctl00_ContentPlaceHolder1_ctl06_btnSearch").click()
+        driver.find_element_by_id("ctl00_ContentPlaceHolder1_ctl06_gvGridView_ctl02_hplInsert").click()
         # switch back to the original Add Link window
         driver.switch_to_window(driver.window_handles[-1])
     else:
         if link == "":
-            testID = getID(driver, "ctl00_ContentPlaceHolder1_ctl00_txtUrl")
-            driver.find_element_by_name(testID).send_keys("blank space link place holder")
+            driver.find_element_by_name("ctl00$ContentPlaceHolder1$ctl06$txtUrl").send_keys("blank space link place holder")
         else:
-            testID = getID(driver, "ctl00_ContentPlaceHolder1_ctl00_txtUrl")
-            driver.find_element_by_name(testID).send_keys(link)
+            driver.find_element_by_name("ctl00$ContentPlaceHolder1$ctl06$txtUrl").send_keys(link)
        
     # create page
-    testID = getID(driver, "ctl00_ContentPlaceHolder1_ctl00_btnSubmit")
-    driver.find_element_by_id(testID).click()
+    driver.find_element_by_id("ctl00_ContentPlaceHolder1_ctl06_btnSubmit").click()
 
 # Creates a content page
 def content_page(url):
     global isOldPage
     if isOldPage:
-        #click Edit
+        # click Edit
         driver.find_element_by_id("ctl00_ContentPlaceHolder1_ctl00_ctl00_menu_m0_m0").click()
     # copy content from old site
     if not (url==None or url.lower()=="new page"):
@@ -128,40 +105,17 @@ def content_page(url):
         textbox.send_keys(Keys.CONTROL + "a")
         textbox.send_keys(Keys.CONTROL + "v")
     # publish the page
-    testID = getID(driver, "ctl00_ContentPlaceHolder1_ctl00_ibPublishBottom")
-    driver.find_element_by_name(testID).click()
+    driver.find_element_by_name("ctl00$ContentPlaceHolder1$ctl07$ibPublishBottom").click()
     if not isOldPage:
-        testID = getID(driver, "ctl00_ContentPlaceHolder1_ctl00_btnYes")
-        WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID, testID)))
-        driver.find_element_by_name(testID).click()
+        WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.NAME, "ctl00$ContentPlaceHolder1$ctl07$btnYes")))
+        driver.find_element_by_name("ctl00$ContentPlaceHolder1$ctl07$btnYes").click()
     isOldPage= False
-    
-# get the ID of the button/link that is being clicked
-def getID(driver, baseID):
-        
-    for ID in range (0, 10): 
-        try:
-            testID = baseID.replace("ContentPlaceHolder1_ctl00", "ContentPlaceHolder1_ctl0" + str(ID))
-            
-            if (ID == 0):
-                WebDriverWait(driver, 0.5).until(EC.visibility_of_element_located((By.ID, testID)))
-        
-            element = driver.find_element_by_id(testID)
-            if element.is_displayed():
-                break
-            
-        except:
-            print ("This ID cannot be found on the page: " + testID)
-            continue
-
-    testID = "".join(testID)
-    return testID
 
 # initial setup: start Firefox and login to website
 driver = webdriver.Firefox()
 driver.get("http://stockton.ss7.sharpschool.com/gateway/Login.aspx?returnUrl=%2fcms%2fOne.aspx%3fportalId%3d462272%26pageId%3d3526277")
-driver.find_element_by_name("ctl00$ContentPlaceHolder1$txtUsername").send_keys("rashad.haque")
-driver.find_element_by_name("ctl00$ContentPlaceHolder1$txtPassword").send_keys("welcome")
+driver.find_element_by_name("ctl00$ContentPlaceHolder1$txtUsername").send_keys("christopher.wong")
+driver.find_element_by_name("ctl00$ContentPlaceHolder1$txtPassword").send_keys(input("password: "))
 driver.find_element_by_name("ctl00$ContentPlaceHolder1$btnLogin").click()
 
 excelLine = "-1"
@@ -170,22 +124,18 @@ currCommaCount = -1
 pagePath = []
 
 #currPage = input("Please enter the URL of the SharpSchool site which you would like to create the pages on: ")
-currPage = "http://stockton.ss7.sharpschool.com/gateway/Login.aspx?returnUrl=%2fcms%2fOne.aspx%3fcontextId%3d462272%26objectId%3d3526277%26action%3dview"
+currPage = "http://stockton.ss7.sharpschool.com/cms/One.aspx?portalId=462272&pageId=3526277"
 pagePath.append(currPage)
 
 # Open the .csv file which contains the website skeleton
 # excelSheet = open(input("Please enter the file name: "), "r")
 excelSheet = open("ONC.csv", "r")
-
 divName = input("Please enter the class or ID name of the div which contains the content on the old site: ")
-print ("here")
 
 # Creates all pages on the .csv file
 while True:
-    print ("in the loop")
     # variable reset
     isOldPage = False    
-    print ("after false")
     
     # read in the next line from the Excel sheet
     excelLine = excelSheet.readline().rstrip()
@@ -220,7 +170,6 @@ while True:
     currCommaCount = commaCount
     
     excelLine = excelLine.strip(' ,"')
-    print ("over here")
     # Check for type of page we want:
     # 0 - Content Space
     # 1 - External Link
@@ -236,7 +185,7 @@ while True:
     pageChar = excelLine[0]
     if str(pageChar).isdigit() :
         excelLine = excelLine[1:]
-    print("gonna create page 1")
+        
     if pageChar == '0':
         addOn = "&action=addTypedPage&parentId=######&pageType=Content+Space+Page"
     elif pageChar == '1':
@@ -264,7 +213,7 @@ while True:
         
     # find current page (parent) ID
     pageId = currPage[(currPage.rfind("pageId=") + 7):]
-    print("gonna create page 2")
+    
     while not pageId.isdigit():
         pageId = pageId[:-1]
         
@@ -272,7 +221,8 @@ while True:
         currPage = currPage[:currPage.find("&action=")]
     
     addOn = addOn.replace("######",pageId)
-    print("gonna create page 3")
+    
+    #currPage = currPage + addOn
     driver.get(currPage + addOn)
     
     # Create external page
