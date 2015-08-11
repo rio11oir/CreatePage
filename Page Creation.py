@@ -6,26 +6,23 @@ Created on Fri Jul 31 10:34:51 2015
 """
 
 from selenium import webdriver
-#from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
-#import pyperclip
-#import time
-import os
+from bs4 import BeautifulSoup
+import urllib.request
+import pyperclip
+import time
+#import os
 
-# THINGS TO CHANGE
-LOG_IN_URL = "http://www.bloomfieldcsd.org/gateway/Login.aspx?returnUrl=%2fcms%2fOne.aspx%3fportalId%3d364860%26pageId%3d3465671"
 
 
 def enter_title(name):
-    nameTextBox = driver.find_element_by_name("ctl00$ContentPlaceHolder1$ctl05$txtTitle")
-    WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID, "ctl00_ContentPlaceHolder1_ctl05_txtTitle")))
+    nameTextBox = driver.find_element_by_name("ctl00$ContentPlaceHolder1$ctl06$txtTitle")
+    WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID, "ctl00_ContentPlaceHolder1_ctl06_txtTitle")))
     nameTextBox.send_keys(name)
-    driver.find_element_by_name("ctl00$ContentPlaceHolder1$ctl05$btnSubmit").click()
-    if EC.visibility_of_element_located((By.ID, "ctl00_ContentPlaceHolder1_ctl05_lblError")):
-        driver.find_element_by_title(name).click()
-
+    driver.find_element_by_name("ctl00$ContentPlaceHolder1$ctl06$btnSubmit").click()
     
     
     # pageType = [0,1,2]: 0 - ext link, 1 - file, 2 - internal page
@@ -41,59 +38,68 @@ def ext_page(excelLine):
     link = link[1:]
    
     # enter the page name
-    driver.find_element_by_name("ctl00$ContentPlaceHolder1$ctl05$txtTitle").send_keys(name)
-    driver.find_element_by_id("ctl00_ContentPlaceHolder1_ctl05_hplGetName").click()
+    driver.find_element_by_name("ctl00$ContentPlaceHolder1$ctl06$txtTitle").send_keys(name)
+    driver.find_element_by_id("ctl00_ContentPlaceHolder1_ctl06_hplGetName").click()
    
     if pageType == '0':
         # enter the web address
-        driver.find_element_by_name("ctl00$ContentPlaceHolder1$ctl05$txtUrl").send_keys(link)
+        driver.find_element_by_name("ctl00$ContentPlaceHolder1$ctl06$txtUrl").send_keys(link)
     elif pageType == '1':
         # click the 'Browse in File System' button
-        driver.find_element_by_id("ctl00_ContentPlaceHolder1_ctl05_rblTypes_1").click()
+        driver.find_element_by_id("ctl00_ContentPlaceHolder1_ctl06_rblTypes_1").click()
         # enter the web address
-        driver.find_element_by_name("ctl00$ContentPlaceHolder1$ctl05$txtUrl").send_keys(link)
+        driver.find_element_by_name("ctl00$ContentPlaceHolder1$ctl06$txtUrl").send_keys(link)
     elif pageType == '2':
         # click the 'Browse Internal Pages' button
-        driver.find_element_by_id("ctl00_ContentPlaceHolder1_ctl05_rblTypes_2").click()
+        driver.find_element_by_id("ctl00_ContentPlaceHolder1_ctl06_rblTypes_2").click()
         # click 'Browse'
-        driver.find_element_by_id("ctl00_ContentPlaceHolder1_ctl05_btnBrowse").click()
+        driver.find_element_by_id("ctl00_ContentPlaceHolder1_ctl06_btnBrowse").click()
         # switch to the new pop up window
         driver.switch_to_window(driver.window_handles[-1])
         # switch to the frame inside the window
         driver.switch_to.frame("browser")
         # search for the page name and choose the first result which shows up
-        driver.find_element_by_id("ctl00_ContentPlaceHolder1_ctl05_txtSearchField").send_keys(name)
-        driver.find_element_by_id("ctl00_ContentPlaceHolder1_ctl05_btnSearch").click()
-        driver.find_element_by_id("ctl00_ContentPlaceHolder1_ctl05_gvGridView_ctl02_hplInsert").click()
+        driver.find_element_by_id("ctl00_ContentPlaceHolder1_ctl06_txtSearchField").send_keys(name)
+        driver.find_element_by_id("ctl00_ContentPlaceHolder1_ctl06_btnSearch").click()
+        driver.find_element_by_id("ctl00_ContentPlaceHolder1_ctl06_gvGridView_ctl02_hplInsert").click()
         # switch back to the original Add Link window
         driver.switch_to_window(driver.window_handles[-1])
     else:
         if link == "":
-            driver.find_element_by_name("ctl00$ContentPlaceHolder1$ctl05$txtUrl").send_keys("blank space link place holder")
+            driver.find_element_by_name("ctl00$ContentPlaceHolder1$ctl06$txtUrl").send_keys("blank space link place holder")
         else:
-            driver.find_element_by_name("ctl00$ContentPlaceHolder1$ctl05$txtUrl").send_keys(link)
+            driver.find_element_by_name("ctl00$ContentPlaceHolder1$ctl06$txtUrl").send_keys(link)
        
     # create page
-    driver.find_element_by_id("ctl00_ContentPlaceHolder1_ctl05_btnSubmit").click()
+    driver.find_element_by_id("ctl00_ContentPlaceHolder1_ctl06_btnSubmit").click()
 
     
 def second_step(content = ""):
-    # driver.find_elements_by_class_name("reMode_html").send_keys(Keys.RETURN) 
-    # Insert beaut paste content code here
-    # pyperclip.copy(content)
-    # textbahx = driver.find_elements_by_tag_name("iframe")[1]
-    # textbahx.send_keys(pyperclip.paste())
+    # can't hard code this because it makes no sense
+    url="http://stocktonschools.com/Page/98"
+    # copy content from old site
+    request = urllib.request.Request(url)
+    result = urllib.request.urlopen(request)
+    html = result.read()
+    soup = BeautifulSoup(html, "lxml")
+    content = soup.find("div", class_ = divName)
+    # paste the code into the editor
+    html_window = driver.find_element_by_class_name("reMode_html")
+    html_window.send_keys(Keys.RETURN)    
+    textbox = driver.find_elements_by_tag_name("iframe")[1]
+    time.sleep(1)
+    content = str(content)
+    pyperclip.copy(content)
+    textbox.send_keys(Keys.CONTROL + "v")
     
-    # do we need code to strip the CSS formating? How?
-    
-    driver.find_element_by_name("ctl00$ContentPlaceHolder1$ctl06$ibPublishBottom").click()
-    driver.find_element_by_name("ctl00$ContentPlaceHolder1$ctl06$btnYes").click()
-    WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.CLASS_NAME, "navLink")))
+    driver.find_element_by_name("ctl00$ContentPlaceHolder1$ctl07$ibPublishBottom").click()
+    WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.NAME, "ctl00$ContentPlaceHolder1$ctl07$btnYes")))
+    driver.find_element_by_name("ctl00$ContentPlaceHolder1$ctl07$btnYes").click()
 
 
 driver = webdriver.Firefox()
-driver.get(LOG_IN_URL)
-driver.find_element_by_name("ctl00$ContentPlaceHolder1$txtUsername").send_keys("christopher.wong")
+driver.get("http://stockton.ss7.sharpschool.com/gateway/Login.aspx?returnUrl=%2fcms%2fOne.aspx%3fportalId%3d462272%26pageId%3d3526277")
+driver.find_element_by_name("ctl00$ContentPlaceHolder1$txtUsername").send_keys("rashad.haque")
 driver.find_element_by_name("ctl00$ContentPlaceHolder1$txtPassword").send_keys("welcome")
 driver.find_element_by_name("ctl00$ContentPlaceHolder1$btnLogin").click()
 
@@ -104,11 +110,13 @@ pagePath = []
 
 
 #pagePath.append("http://dem.Links.cahm/asdfasd/asdgas/ghet/ahet/FILES/YEAH/WHOOP/shurpskule/cms/id=01293857")
-currPage = "http://www.bloomfieldcsd.org/cms/One.aspx?portalId=364860&pageId=3465671"
+currPage = "http://stockton.ss7.sharpschool.com/cms/One.aspx?portalId=462272&pageId=3526277"
 pagePath.append(currPage)
 
-os.chdir("/Users/christopher.wong/Documents/Automation/Page Creation")
-excelSheet = open("Book1.csv", "r")
+#os.chdir("/Users/christopher.wong/Documents/Automation/Page Creation")
+excelSheet = open("ONC.csv", "r")
+
+divName = input("Please enter the class name of the div which contains the content:")
 
 while True:
     excelLine = excelSheet.readline().rstrip()
@@ -156,10 +164,11 @@ while True:
     # 7 - News
     # 8 - Teacher Page
     # 9 - Blog - currently not supported
-    # A - Wiki
+    # A/9 - Wiki
     pageChar = excelLine[0]
     if str(pageChar).isdigit() :
         excelLine = excelLine[1:]
+    
     if pageChar == '0':
         addOn = "&action=addTypedPage&parentId=######&pageType=Content+Space+Page"
     elif pageChar == '1':
@@ -184,7 +193,6 @@ while True:
         addOn = "&action=addTypedPage&parentId=######&pageType=Wiki+Page"
     else:
         addOn = "&action=addTypedPage&parentId=######&pageType=Content+Space+Page"
-        pageChar = '0'
         
     pageId = currPage[(currPage.rfind("pageId=") + 7):]
     
@@ -218,6 +226,7 @@ while True:
     pagePath.append(driver.current_url)
 
 print("done! :D")
+
 excelSheet.close()
 
     
