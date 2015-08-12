@@ -99,9 +99,8 @@ def content_page(url):
         if (str(content) == None):
             content = soup.find("div", id_ = divName)
         # paste the code into the HTML editor
-        html_window = driver.find_element_by_class_name("reMode_html")
-        html_window.send_keys(Keys.RETURN)    
-        textbox = driver.find_elements_by_tag_name("iframe")[0]
+        html_window = driver.find_element_by_class_name("reMode_html").click()
+        textbox = driver.find_elements_by_tag_name("iframe")[1]
         time.sleep(1)
         content = str(content)
         pyperclip.copy(content)
@@ -163,6 +162,7 @@ pagePath.append(currPage)
 excelSheet = open("ONC.csv", "r")
 divName = input("Please enter the class or ID name of the div which contains the content on the old site: ")
 
+print("Migration beginning...")
 # Creates all pages on the .csv file
 while True:
     # variable reset
@@ -279,4 +279,4 @@ while True:
     pagePath.append(driver.current_url)
 
 excelSheet.close()
-print("done! :D")
+print("Migration complete! :D")
