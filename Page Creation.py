@@ -12,6 +12,7 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.by import By
+from selenium.webdriver.firefox.webdriver import FirefoxProfile
 import time
 import urllib.request
 
@@ -100,12 +101,21 @@ def content_page(url):
         # paste the code into the HTML editor
         html_window = driver.find_element_by_class_name("reMode_html")
         html_window.send_keys(Keys.RETURN)    
-        textbox = driver.find_elements_by_tag_name("iframe")[1]
+        textbox = driver.find_elements_by_tag_name("iframe")[0]
         time.sleep(1)
         content = str(content)
         pyperclip.copy(content)
         textbox.send_keys(Keys.CONTROL + "a")
         textbox.send_keys(Keys.CONTROL + "v")
+        
+    # Extension things
+    driver.find_element_by_id(getID(driver, "loadBtn")).click()
+    WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.ID, getID(driver, "stripBtn"))))
+    driver.find_element_by_id(getID(driver, "stripBtn")).click()
+    WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.ID, getID(driver, "startBtn"))))
+    driver.find_element_by_id(getID(driver, "startBtn")).click()
+    WebDriverWait(driver, 1000000).until(EC.element_to_be_clickable((By.ID, getID(driver, "startBtn"))))
+    
     # publish the page
     driver.find_element_by_id(getID(driver, "ctl00_ContentPlaceHolder1_ctl00_ibPublishBottom")).click()
     if not isOldPage:
@@ -132,7 +142,8 @@ def getID(driver, baseID):
     return testID
 
 # initial setup: start Firefox and login to website
-driver = webdriver.Firefox()
+firefoxProfile = FirefoxProfile("..\FF Profile")
+driver = webdriver.Firefox(firefox_profile=firefoxProfile)
 driver.get("http://stockton.ss7.sharpschool.com/gateway/Login.aspx?returnUrl=%2fcms%2fOne.aspx%3fportalId%3d462272%26pageId%3d3526277")
 driver.find_element_by_name("ctl00$ContentPlaceHolder1$txtUsername").send_keys(input("Username: "))
 driver.find_element_by_name("ctl00$ContentPlaceHolder1$txtPassword").send_keys(input("Password: "))
