@@ -24,10 +24,23 @@ def enter_title(name):
     WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID, testID)))
     driver.find_element_by_id(testID).send_keys(name)
     driver.find_element_by_id(getID(driver, "ctl00_ContentPlaceHolder1_ctl00_btnSubmit")).click()
-    #if EC.visibility_of_element_located((By.ID, "ctl00_ContentPlaceHolder1_ctl05_lblError")):
-    #    driver.find_element_by_title(name).click()
-    #    global isOldPage
-    #    isOldPage = True
+    
+    # if page with same name already exists
+    if EC.visibility_of_element_located((By.ID, "ctl00_ContentPlaceHolder1_ctl05_lblError")):
+        navLinkList = driver.find_elements_by_class_name("navLink")
+        
+        for x in range(0,navLinkList.size-1):
+            driver.find_elements_by_class_name("navLink")[x].click()
+            #request = urllib.request.Request(url)
+            
+            if driver.title.find(name) == 0:
+                break
+            driver.back()
+
+        global isOldPage
+        isOldPage = True
+
+
      
 # Creates an external link page
 # pageType = [0,1,2]: 0 - ext link, 1 - file, 2 - internal page
