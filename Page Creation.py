@@ -19,11 +19,10 @@ isOldPage = False
 
 # enter the title when creating a new page and press submit
 def enter_title(name):
-    WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.NAME, "ctl00$ContentPlaceHolder1$ctl06$txtTitle")))
-    nameTextBox = driver.find_element_by_name("ctl00$ContentPlaceHolder1$ctl06$txtTitle")
-    WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID, "ctl00_ContentPlaceHolder1_ctl06_txtTitle")))
-    nameTextBox.send_keys(name)
-    driver.find_element_by_name("ctl00$ContentPlaceHolder1$ctl06$btnSubmit").click()
+    testID = getID(driver, "ctl00_ContentPlaceHolder1_ctl00_txtTitle")
+    WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID, testID)))
+    driver.find_element_by_id(testID).send_keys(name)
+    driver.find_element_by_id(getID(driver, "ctl00_ContentPlaceHolder1_ctl00_btnSubmit")).click()
     #if EC.visibility_of_element_located((By.ID, "ctl00_ContentPlaceHolder1_ctl05_lblError")):
     #    driver.find_element_by_title(name).click()
     #    global isOldPage
@@ -46,41 +45,42 @@ def ext_page(excelLine):
     link = link[1:]
    
     # enter the page name
-    WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.NAME, "ctl00$ContentPlaceHolder1$ctl06$txtTitle")))
-    driver.find_element_by_name("ctl00$ContentPlaceHolder1$ctl06$txtTitle").send_keys(name)
-    driver.find_element_by_id("ctl00_ContentPlaceHolder1_ctl06_hplGetName").click()
+    testID = getID(driver, "ctl00_ContentPlaceHolder1_ctl00_txtTitle")
+    WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID, testID)))
+    driver.find_element_by_id(testID).send_keys(name)
+    driver.find_element_by_id(getID(driver, "ctl00_ContentPlaceHolder1_ctl00_hplGetName")).click()
    
     if pageType == '0':
         # enter the web address
-        driver.find_element_by_name("ctl00$ContentPlaceHolder1$ctl06$txtUrl").send_keys(link)
+        driver.find_element_by_id(getID(driver, "ctl00_ContentPlaceHolder1_ctl00_txtUrl")).send_keys(link)
     elif pageType == '1':
         # click the 'Browse in File System' button
-        driver.find_element_by_id("ctl00_ContentPlaceHolder1_ctl06_rblTypes_1").click()
+        driver.find_element_by_id(getID(driver, "ctl00_ContentPlaceHolder1_ctl00_rblTypes_1")).click()
         # enter the web address
-        driver.find_element_by_name("ctl00$ContentPlaceHolder1$ctl06$txtUrl").send_keys(link)
+        driver.find_element_by_id(getID(driver, "ctl00_ContentPlaceHolder1_ctl00_txtUrl")).send_keys(link)
     elif pageType == '2':
         # click the 'Browse Internal Pages' button
-        driver.find_element_by_id("ctl00_ContentPlaceHolder1_ctl06_rblTypes_2").click()
+        driver.find_element_by_id(getID(driver, "ctl00_ContentPlaceHolder1_ctl00_rblTypes_2")).click()
         # click 'Browse'
-        driver.find_element_by_id("ctl00_ContentPlaceHolder1_ctl06_btnBrowse").click()
+        driver.find_element_by_id(getID(driver, "ctl00_ContentPlaceHolder1_ctl00_btnBrowse")).click()
         # switch to the new pop up window
         driver.switch_to_window(driver.window_handles[-1])
         # switch to the frame inside the window
         driver.switch_to.frame("browser")
         # search for the page name and choose the first result which shows up
-        driver.find_element_by_id("ctl00_ContentPlaceHolder1_ctl06_txtSearchField").send_keys(name)
-        driver.find_element_by_id("ctl00_ContentPlaceHolder1_ctl06_btnSearch").click()
-        driver.find_element_by_id("ctl00_ContentPlaceHolder1_ctl06_gvGridView_ctl02_hplInsert").click()
+        driver.find_element_by_id(getID(driver, "ctl00_ContentPlaceHolder1_ctl00_txtSearchField")).send_keys(name)
+        driver.find_element_by_id(getID(driver, "ctl00_ContentPlaceHolder1_ctl00_btnSearch")).click()
+        driver.find_element_by_id(getID(driver, "ctl00_ContentPlaceHolder1_ctl00_gvGridView_ctl02_hplInsert")).click()
         # switch back to the original Add Link window
         driver.switch_to_window(driver.window_handles[-1])
     else:
         if link == "":
-            driver.find_element_by_name("ctl00$ContentPlaceHolder1$ctl06$txtUrl").send_keys("blank space link place holder")
+            driver.find_element_by_id(getID(driver, "ctl00_ContentPlaceHolder1_ctl00_txtUrl")).send_keys("blank space link place holder")
         else:
-            driver.find_element_by_name("ctl00$ContentPlaceHolder1$ctl06$txtUrl").send_keys(link)
+            driver.find_element_by_id(getID(driver, "ctl00_ContentPlaceHolder1_ctl00_txtUrl")).send_keys(link)
        
     # create page
-    driver.find_element_by_id("ctl00_ContentPlaceHolder1_ctl06_btnSubmit").click()
+    driver.find_element_by_id(getID(driver, "ctl00_ContentPlaceHolder1_ctl00_btnSubmit")).click()
 
 # Creates a content page
 def content_page(url):
@@ -107,11 +107,29 @@ def content_page(url):
         textbox.send_keys(Keys.CONTROL + "a")
         textbox.send_keys(Keys.CONTROL + "v")
     # publish the page
-    driver.find_element_by_name("ctl00$ContentPlaceHolder1$ctl07$ibPublishBottom").click()
+    driver.find_element_by_id(getID(driver, "ctl00_ContentPlaceHolder1_ctl00_ibPublishBottom")).click()
     if not isOldPage:
-        WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.NAME, "ctl00$ContentPlaceHolder1$ctl07$btnYes")))
-        driver.find_element_by_name("ctl00$ContentPlaceHolder1$ctl07$btnYes").click()
+        WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID, getID(driver, "ctl00_ContentPlaceHolder1_ctl00_btnYes"))))
+        driver.find_element_by_id(getID(driver, "ctl00_ContentPlaceHolder1_ctl00_btnYes")).click()
     isOldPage= False
+    
+# Get the correct ID for buttons/links
+def getID(driver, baseID):
+        
+    for ID in range (0, 10): 
+        try:
+            testID = baseID.replace("ContentPlaceHolder1_ctl00", "ContentPlaceHolder1_ctl0" + str(ID))
+            if (ID == 0):
+                WebDriverWait(driver, 0.5).until(EC.visibility_of_element_located((By.ID, testID)))
+            
+            element = driver.find_element_by_id(testID)
+            if element.is_displayed():
+                break
+        except:
+            continue
+
+    testID = "".join(testID)
+    return testID
 
 # initial setup: start Firefox and login to website
 driver = webdriver.Firefox()
