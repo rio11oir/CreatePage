@@ -138,6 +138,7 @@ def content_page(url):
     if not isOldPage:
         WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID, getID(driver, "ctl00_ContentPlaceHolder1_ctl00_btnYes"))))
         driver.find_element_by_id(getID(driver, "ctl00_ContentPlaceHolder1_ctl00_btnYes")).click()
+    #WebDriverWait(driver, 10).until(driver.current_url.find("pageedit")==-1)
     isOldPage= False
     
 # Get the correct ID for buttons/links
@@ -259,6 +260,7 @@ while True:
         addOn = "&action=addTypedPage&parentId=######&pageType=Wiki+Page"
     else:
         addOn = "&action=addTypedPage&parentId=######&pageType=Content+Space+Page"
+        pageChar = '0'
         
     # find current page (parent) ID
     pageId = currPage[(currPage.rfind("pageId=") + 7):]
