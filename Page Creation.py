@@ -117,8 +117,8 @@ def content_page(url):
             content = soup.find("div", id_ = divName)
         
         content = str(content[0])
-        content.replace('src="/', 'src="http://newhorizonschool.org/')
-        content.replace('href="/', 'href="http://newhorizonschool.org/')
+        content = content.replace('src="/', 'src="http://newhorizonschool.org/')
+        content = content.replace('href="/', 'href="http://newhorizonschool.org/')
         
         # paste the code into the HTML editor
         WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.CLASS_NAME, "reMode_html")))
