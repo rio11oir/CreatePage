@@ -17,6 +17,7 @@ import time
 import urllib.request
 
 isOldPage = False
+DOMAIN = "http://newhorizonschool.org/"
 
 # enter the title when creating a new page and press submit
 def enter_title(name):
@@ -26,6 +27,7 @@ def enter_title(name):
     driver.find_element_by_id(getID(driver, "ctl00_ContentPlaceHolder1_ctl00_btnSubmit")).click()
     
     # if page with same name already exists
+    """
     if EC.visibility_of_element_located((By.ID, "ctl00_ContentPlaceHolder1_ctl05_lblError")):
         navLinkList = driver.find_elements_by_class_name("navLink")
         
@@ -41,6 +43,7 @@ def enter_title(name):
             
         global isOldPage
         isOldPage = True
+    """
 
 
      
@@ -87,7 +90,7 @@ def ext_page(excelLine):
         # search for the page name and choose the first result which shows up
         driver.find_element_by_id(getID(driver, "ctl00_ContentPlaceHolder1_ctl00_txtSearchField")).send_keys(name)
         driver.find_element_by_id(getID(driver, "ctl00_ContentPlaceHolder1_ctl00_btnSearch")).click()
-        driver.find_element_by_id(getID(driver, "ctl00_ContentPlaceHolder1_ctl00_gvGridView_ctl02_hplInsert")).click()
+        driver.find_element_by_id("ctl00_ContentPlaceHolder1_ctl00_gvGridView_ctl02_hplInsert").click()
         # switch back to the original Add Link window
         driver.switch_to_window(driver.window_handles[-1])
     else:
@@ -115,12 +118,15 @@ def content_page(url):
         content = soup.select("div#" + divName)
         if (str(content) == None or str(content) == ""):
             content = soup.find("div", id_ = divName)
+            
+        content = str(content)
+        content.replace("src=\"/", "src=\"" + DOMAIN)
+        
         # paste the code into the HTML editor
         WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.CLASS_NAME, "reMode_html")))
         driver.find_element_by_class_name("reMode_html").click()
         textbox = driver.find_elements_by_tag_name("iframe")[1]
         time.sleep(1)
-        content = str(content)
         pyperclip.copy(content)
         textbox.send_keys(Keys.CONTROL + "a")
         textbox.send_keys(Keys.CONTROL + "v")
