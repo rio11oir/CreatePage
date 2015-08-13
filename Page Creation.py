@@ -17,7 +17,6 @@ import time
 import urllib.request
 
 isOldPage = False
-DOMAIN = 'http://newhorizonschool.org/'
 
 # enter the title when creating a new page and press submit
 def enter_title(name):
@@ -45,7 +44,6 @@ def enter_title(name):
         isOldPage = True
     """
 
-     
 # Creates an external link page
 # pageType = [0,1,2]: 0 - ext link, 1 - file, 2 - internal page
 def ext_page(excelLine):
@@ -119,7 +117,8 @@ def content_page(url):
             content = soup.find("div", id_ = divName)
         
         content = str(content[0])
-        content.replace('src="/', 'src="' + DOMAIN)
+        content.replace('src="/', 'src="http://newhorizonschool.org/')
+        content.replace('href="/', 'href="http://newhorizonschool.org/')
         
         # paste the code into the HTML editor
         WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.CLASS_NAME, "reMode_html")))
