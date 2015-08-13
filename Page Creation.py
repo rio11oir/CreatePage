@@ -112,8 +112,8 @@ def content_page(url):
         result = urllib.request.urlopen(request)
         html = result.read()
         soup = BeautifulSoup(html, "lxml")
-        content = soup.find("div", class_ = divName)
-        if (str(content) == None):
+        content = soup.select("div#" + divName)
+        if (str(content) == None or str(content) == ""):
             content = soup.find("div", id_ = divName)
         # paste the code into the HTML editor
         WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.CLASS_NAME, "reMode_html")))
@@ -138,7 +138,6 @@ def content_page(url):
     if not isOldPage:
         WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID, getID(driver, "ctl00_ContentPlaceHolder1_ctl00_btnYes"))))
         driver.find_element_by_id(getID(driver, "ctl00_ContentPlaceHolder1_ctl00_btnYes")).click()
-    #WebDriverWait(driver, 10).until(driver.current_url.find("pageedit")==-1)
     isOldPage= False
     
 # Get the correct ID for buttons/links
