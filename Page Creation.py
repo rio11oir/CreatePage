@@ -29,14 +29,16 @@ def enter_title(name):
     if EC.visibility_of_element_located((By.ID, "ctl00_ContentPlaceHolder1_ctl05_lblError")):
         navLinkList = driver.find_elements_by_class_name("navLink")
         
-        for x in range(0,navLinkList.size-1):
-            driver.find_elements_by_class_name("navLink")[x].click()
+        for x in range(0,len(navLinkList)-1):
+            navLinkList[x].click()
             #request = urllib.request.Request(url)
-            
+
             if driver.title.find(name) == 0:
                 break
             driver.back()
-
+            WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.CLASS_NAME, "navLink")))
+            navLinkList = driver.find_elements_by_class_name("navLink")
+            
         global isOldPage
         isOldPage = True
 
@@ -101,6 +103,7 @@ def content_page(url):
     global isOldPage
     if isOldPage:
         # click Edit
+        driver.find_element_by_id("ctl00_ContentPlaceHolder1_ctl00_ctl00_menu_m0").click()
         driver.find_element_by_id("ctl00_ContentPlaceHolder1_ctl00_ctl00_menu_m0_m0").click()
     # copy content from old site
     if not (url==None or url.lower()=="new page"):
@@ -112,7 +115,8 @@ def content_page(url):
         if (str(content) == None):
             content = soup.find("div", id_ = divName)
         # paste the code into the HTML editor
-        html_window = driver.find_element_by_class_name("reMode_html").click()
+        WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.CLASS_NAME, "reMode_html")))
+        driver.find_element_by_class_name("reMode_html").click()
         textbox = driver.find_elements_by_tag_name("iframe")[1]
         time.sleep(1)
         content = str(content)
