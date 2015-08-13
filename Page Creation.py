@@ -74,6 +74,7 @@ def ext_page(excelLine):
         driver.find_element_by_id(getID(driver, "ctl00_ContentPlaceHolder1_ctl00_rblTypes_1")).click()
         # enter the web address
         driver.find_element_by_id(getID(driver, "ctl00_ContentPlaceHolder1_ctl00_txtUrl")).send_keys(link)
+        print ("Need to relink: " + name)
     elif pageType == '2':
         # click the 'Browse Internal Pages' button
         driver.find_element_by_id(getID(driver, "ctl00_ContentPlaceHolder1_ctl00_rblTypes_2")).click()
@@ -160,7 +161,7 @@ def getID(driver, baseID):
 # initial setup: start Firefox and login to website
 firefoxProfile = FirefoxProfile("..\FF Profile")
 driver = webdriver.Firefox(firefox_profile=firefoxProfile)
-driver.get("http://stockton.ss7.sharpschool.com/gateway/Login.aspx?returnUrl=%2fcms%2fOne.aspx%3fportalId%3d462272%26pageId%3d3526277")
+driver.get("http://newhorizon.ss8.sharpschool.com/gateway/Login.aspx?ReturnUrl=%2f")
 driver.find_element_by_name("ctl00$ContentPlaceHolder1$txtUsername").send_keys(input("Username: "))
 driver.find_element_by_name("ctl00$ContentPlaceHolder1$txtPassword").send_keys(input("Password: "))
 driver.find_element_by_name("ctl00$ContentPlaceHolder1$btnLogin").click()
@@ -171,12 +172,12 @@ currCommaCount = -1
 pagePath = []
 
 #currPage = input("Please enter the URL of the SharpSchool site which you would like to create the pages on: ")
-currPage = "http://stockton.ss7.sharpschool.com/cms/One.aspx?portalId=462272&pageId=3526277"
+currPage = "http://newhorizon.ss8.sharpschool.com/cms/One.aspx?portalId=503651&pageId=503659"
 pagePath.append(currPage)
 
 # Open the .csv file which contains the website skeleton
 # excelSheet = open(input("Please enter the file name: "), "r")
-excelSheet = open("ONC.csv", "r")
+excelSheet = open("New Horizon's School.csv", "r")
 divName = input("Please enter the class or ID name of the div which contains the content on the old site: ")
 
 print("Migration beginning...")
