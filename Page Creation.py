@@ -23,7 +23,8 @@ def enter_title(name):
     testID = getID(driver, "ctl00_ContentPlaceHolder1_ctl00_txtTitle")
     WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID, testID)))
     driver.find_element_by_id(testID).send_keys(name)
-    driver.find_element_by_id(getID(driver, "ctl00_ContentPlaceHolder1_ctl00_btnSubmit")).click()
+    
+    #driver.find_element_by_id(getID(driver, "ctl00_ContentPlaceHolder1_ctl00_btnSubmit")).click()
     
     # if page with same name already exists
     """
@@ -46,13 +47,9 @@ def enter_title(name):
 
 # Creates an external link page
 # pageType = [0,1,2]: 0 - ext link, 1 - file, 2 - internal page
-def ext_page(excelLine):
-    # get the page name and link from the line read in from the Excel sheet    
-    name, link = excelLine.rsplit(',', 1)
-    name = name.strip(' ,"')
-    link = link.strip(' ,"')
-    name = name.replace("\"\"","\"")
-   
+def ext_page(nameAndLink):
+    name = nameAndLink[0]
+    link = nameAndLink[1]
     # first character of the link will describe what type of link it is
     # 0 - external link
     # 1 - internal file
@@ -61,9 +58,10 @@ def ext_page(excelLine):
     link = link[1:]
    
     # enter the page name
-    testID = getID(driver, "ctl00_ContentPlaceHolder1_ctl00_txtTitle")
-    WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID, testID)))
-    driver.find_element_by_id(testID).send_keys(name)
+    #testID = getID(driver, "ctl00_ContentPlaceHolder1_ctl00_txtTitle")
+    #WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID, testID)))
+    #driver.find_element_by_id(testID).send_keys(name)
+    
     driver.find_element_by_id(getID(driver, "ctl00_ContentPlaceHolder1_ctl00_hplGetName")).click()
    
     if pageType == '0':
@@ -74,7 +72,9 @@ def ext_page(excelLine):
         driver.find_element_by_id(getID(driver, "ctl00_ContentPlaceHolder1_ctl00_rblTypes_1")).click()
         # enter the web address
         driver.find_element_by_id(getID(driver, "ctl00_ContentPlaceHolder1_ctl00_txtUrl")).send_keys(link)
-        print ("Need to relink: " + name)
+        driver.find_element_by_id(getID(driver, "chkBtn")).click()
+        WebDriverWait(driver, 10).until(EC.text_to_be_present_in_element_value((By.ID, 'statusBox'), 'Done'))
+        EC.text_to_be_present_in_element_value
     elif pageType == '2':
         # click the 'Browse Internal Pages' button
         driver.find_element_by_id(getID(driver, "ctl00_ContentPlaceHolder1_ctl00_rblTypes_2")).click()
@@ -161,11 +161,28 @@ def getID(driver, baseID):
 
     testID = "".join(testID)
     return testID
+    
+    
+# Separate page name and old site URL 
+    #nameAndLink[0] is the name, nameAndLink[1] is the link
+def splitLine(excelLine):
+    nameAndLink = excelLine.rsplit(',', 1)
+    
+    nameAndLink[0] = nameAndLink[0].strip(' ,"')
+    nameAndLink[0] = nameAndLink[0].replace("\"\"","\"")
+    
+    if len(nameAndLink) >1:
+        nameAndLink[1] = nameAndLink[1].strip(' ,"')
+    
+    enter_title(nameAndLink[0])
+    return nameAndLink
+
+    
 
 # initial setup: start Firefox and login to website
 firefoxProfile = FirefoxProfile("..\FF Profile")
 driver = webdriver.Firefox(firefox_profile=firefoxProfile)
-driver.get("http://newhorizon.ss8.sharpschool.com/gateway/Login.aspx?ReturnUrl=%2f")
+driver.get("http://laingsburg.ss8.sharpschool.com/gateway/Login.aspx?ReturnUrl=%2f")
 driver.find_element_by_name("ctl00$ContentPlaceHolder1$txtUsername").send_keys(input("Username: "))
 driver.find_element_by_name("ctl00$ContentPlaceHolder1$txtPassword").send_keys(input("Password: "))
 driver.find_element_by_name("ctl00$ContentPlaceHolder1$btnLogin").click()
@@ -176,12 +193,13 @@ currCommaCount = -1
 pagePath = []
 
 #currPage = input("Please enter the URL of the SharpSchool site which you would like to create the pages on: ")
-currPage = "http://newhorizon.ss8.sharpschool.com/cms/One.aspx?portalId=503651&pageId=503659"
+currPage = "http://laingsburg.ss8.sharpschool.com/cms/One.aspx?portalId=453627&pageId=453635"
 pagePath.append(currPage)
 
 # Open the .csv file which contains the website skeleton
 # excelSheet = open(input("Please enter the file name: "), "r")
-excelSheet = open("New Horizon's School.csv", "r")
+#excelSheet = open("Laingsburg Community Schools.csv", "r")
+excelSheet = open("ONC.csv", "r")
 divName = input("Please enter the class or ID name of the div which contains the content on the old site: ")
 
 print("Migration beginning...")
@@ -281,23 +299,22 @@ while True:
     
     # Create external page
     if pageChar == '1':
-        ext_page(excelLine)
+        ext_page(splitLine(excelLine))
     # Create all other types of pages
     else:
         # Separate page name and old site URL
-        name, link = excelLine.rsplit(',', 1)
-        name = name.strip(' ,"')
-        link = link.strip(' ,"')
-        name = name.replace("\"\"","\"")
-        enter_title(name)
+        nameAndLink = splitLine(excelLine)
+        driver.find_element_by_id(getID(driver, "ctl00_ContentPlaceHolder1_ctl00_btnSubmit")).click()
+
         
     # if ext link page or blog page, it ends up on the parent page
     if pageChar == '1' or pageChar == '9': 
         pagePath.pop()
         currCommaCount = currCommaCount - 1    
-    # if content space page or teacher page, there is a 2nd step
+    # if content space page or teacher page, there is a 2nd step (and requires an old site URL)
     elif pageChar == '0' or pageChar == '8':
-        content_page(link)
+        content_page(nameAndLink[1])
+
         
     pagePath.append(driver.current_url)
 
