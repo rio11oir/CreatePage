@@ -5,6 +5,14 @@ Created on Fri Jul 31 10:34:51 2015
 @author: christopher.wong, rashad.haque
 """
 
+
+# THINGS TO CHANGE:
+csvName = "ONC.csv"
+startingPage = "http://laingsburg.ss8.sharpschool.com/cms/One.aspx?portalId=453627&pageId=1447230"
+loginPage = "http://laingsburg.ss8.sharpschool.com/gateway/Login.aspx?ReturnUrl=%2f"
+divName = "content"
+
+
 from bs4 import BeautifulSoup
 import pyperclip
 from selenium import webdriver
@@ -16,7 +24,9 @@ from selenium.webdriver.firefox.webdriver import FirefoxProfile
 import time
 import urllib.request
 
+global isOldPage
 isOldPage = False
+
 
 # enter the title when creating a new page and press submit
 def enter_title(name):
@@ -25,10 +35,13 @@ def enter_title(name):
     driver.find_element_by_id(testID).send_keys(name)
     
     #driver.find_element_by_id(getID(driver, "ctl00_ContentPlaceHolder1_ctl00_btnSubmit")).click()
-    
+
+
+# Checks for duplicate page error
+def dupPageCheck(name):
     # if page with same name already exists
-    """
-    if EC.visibility_of_element_located((By.ID, "ctl00_ContentPlaceHolder1_ctl05_lblError")):
+    if EC.text_to_be_present_in_element(EC.visibility_of_element_located(getID(driver,'ctl00_ContentPlaceHolder1_ctl06_lblError')), 'Error!   The page name already exists..'):
+        print('found')
         navLinkList = driver.find_elements_by_class_name("navLink")
         
         for x in range(0,len(navLinkList)-1):
@@ -43,7 +56,8 @@ def enter_title(name):
             
         global isOldPage
         isOldPage = True
-    """
+
+
 
 # Creates an external link page
 # pageType = [0,1,2]: 0 - ext link, 1 - file, 2 - internal page
@@ -73,7 +87,7 @@ def ext_page(nameAndLink):
         # enter the web address
         driver.find_element_by_id(getID(driver, "ctl00_ContentPlaceHolder1_ctl00_txtUrl")).send_keys(link)
         driver.find_element_by_id(getID(driver, "chkBtn")).click()
-        WebDriverWait(driver, 10).until(EC.text_to_be_present_in_element_value((By.ID, 'statusBox'), 'Done'))
+        WebDriverWait(driver, 1000).until(EC.text_to_be_present_in_element_value((By.ID, 'statusBox'), 'Done'))
         EC.text_to_be_present_in_element_value
     elif pageType == '2':
         # click the 'Browse Internal Pages' button
@@ -101,6 +115,7 @@ def ext_page(nameAndLink):
 
 # Creates a content page
 def content_page(url):
+   
     global isOldPage
     if isOldPage:
         # click Edit
@@ -117,8 +132,13 @@ def content_page(url):
             content = soup.find("div", id_ = divName)
         
         content = str(content[0])
-        content = content.replace('src="/', 'src="http://newhorizonschool.org/')
-        content = content.replace('href="/', 'href="http://newhorizonschool.org/')
+        
+        if content.find('src="/') ==-1 or content.find('src="http://www.laingsburg.k12.mi.us/')==-1 :
+            content = content.replace('src="', 'src="http://www.laingsburg.k12.mi.us/')
+        else:    
+            content = content.replace('src="/', 'src="http://www.laingsburg.k12.mi.us/')
+        
+        content = content.replace('href="/', 'href="http://www.laingsburg.k12.mi.us/')
         
         # paste the code into the HTML editor
         WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.CLASS_NAME, "reMode_html")))
@@ -182,7 +202,7 @@ def splitLine(excelLine):
 # initial setup: start Firefox and login to website
 firefoxProfile = FirefoxProfile("..\FF Profile")
 driver = webdriver.Firefox(firefox_profile=firefoxProfile)
-driver.get("http://laingsburg.ss8.sharpschool.com/gateway/Login.aspx?ReturnUrl=%2f")
+driver.get(loginPage)
 driver.find_element_by_name("ctl00$ContentPlaceHolder1$txtUsername").send_keys(input("Username: "))
 driver.find_element_by_name("ctl00$ContentPlaceHolder1$txtPassword").send_keys(input("Password: "))
 driver.find_element_by_name("ctl00$ContentPlaceHolder1$btnLogin").click()
@@ -193,19 +213,20 @@ currCommaCount = -1
 pagePath = []
 
 #currPage = input("Please enter the URL of the SharpSchool site which you would like to create the pages on: ")
-currPage = "http://laingsburg.ss8.sharpschool.com/cms/One.aspx?portalId=453627&pageId=453635"
+currPage = startingPage
 pagePath.append(currPage)
 
 # Open the .csv file which contains the website skeleton
 # excelSheet = open(input("Please enter the file name: "), "r")
 #excelSheet = open("Laingsburg Community Schools.csv", "r")
-excelSheet = open("ONC.csv", "r")
-divName = input("Please enter the class or ID name of the div which contains the content on the old site: ")
+excelSheet = open(csvName, "r")
+#divName = input("Please enter the class or ID name of the div which contains the content on the old site: ")
 
 print("Migration beginning...")
 # Creates all pages on the .csv file
 while True:
     # variable reset
+    global isOldPage
     isOldPage = False    
     
     # read in the next line from the Excel sheet
@@ -313,6 +334,7 @@ while True:
         currCommaCount = currCommaCount - 1    
     # if content space page or teacher page, there is a 2nd step (and requires an old site URL)
     elif pageChar == '0' or pageChar == '8':
+        dupPageCheck(nameAndLink[0])
         content_page(nameAndLink[1])
 
         
