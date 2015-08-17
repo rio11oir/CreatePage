@@ -8,6 +8,7 @@ Created on Fri Jul 31 10:34:51 2015
 
 # THINGS TO CHANGE:
 csvName = "ONC.csv"
+oldSite = "http://www.laingsburg.k12.mi.us/"
 startingPage = "http://laingsburg.ss8.sharpschool.com/cms/One.aspx?portalId=453627&pageId=1447230"
 loginPage = "http://laingsburg.ss8.sharpschool.com/gateway/Login.aspx?ReturnUrl=%2f"
 divName = "content"
@@ -32,7 +33,11 @@ isOldPage = False
 def enter_title(name):
     testID = getID(driver, "ctl00_ContentPlaceHolder1_ctl00_txtTitle")
     WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID, testID)))
-    driver.find_element_by_id(testID).send_keys(name)
+    
+    textbox = driver.find_element_by_id(testID)
+    textbox.send_keys(Keys.CONTROL + "a")    
+    textbox.send_keys(name)
+    
     
     #driver.find_element_by_id(getID(driver, "ctl00_ContentPlaceHolder1_ctl00_btnSubmit")).click()
 
@@ -41,7 +46,10 @@ def enter_title(name):
 """
 def dupPageCheck(name):
     # if page with same name already exists
-    if EC.text_to_be_present_in_element(EC.visibility_of_element_located(getID(driver,'ctl00_ContentPlaceHolder1_ctl06_lblError')), 'Error!   The page name already exists..'):
+
+    WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.CLASS_NAME, "reMode_html")))
+    
+    if EC.text_to_be_present_in_element(EC.visibility_of_element_located('ctl00_ContentPlaceHolder1_ctl06_lblError'), 'Error!   The page name already exists..'):
         print('found')
         navLinkList = driver.find_elements_by_class_name("navLink")
         
@@ -57,6 +65,10 @@ def dupPageCheck(name):
             
         global isOldPage
         isOldPage = True
+        
+        # click Edit
+        driver.find_element_by_id("ctl00_ContentPlaceHolder1_ctl00_ctl00_menu_m0").click()
+        driver.find_element_by_id("ctl00_ContentPlaceHolder1_ctl00_ctl00_menu_m0_m0").click()
 """
 
 
@@ -115,13 +127,12 @@ def ext_page(nameAndLink):
     driver.find_element_by_id(getID(driver, "ctl00_ContentPlaceHolder1_ctl00_btnSubmit")).click()
 
 # Creates a content page
-def content_page(url):
-   
-    global isOldPage
-    if isOldPage:
-        # click Edit
-        driver.find_element_by_id("ctl00_ContentPlaceHolder1_ctl00_ctl00_menu_m0").click()
-        driver.find_element_by_id("ctl00_ContentPlaceHolder1_ctl00_ctl00_menu_m0_m0").click()
+def content_page(nameAndLink):
+    name = nameAndLink[0]
+    url = nameAndLink[1]
+    #global isOldPage
+    #if isOldPage:
+        
     # copy content from old site
     if not (url==None or url.lower()=="new page"):
         request = urllib.request.Request(url)
@@ -134,15 +145,30 @@ def content_page(url):
         
         content = str(content[0])
         
-        if content.find('src="/') ==-1 or content.find('src="http://www.laingsburg.k12.mi.us/')==-1 :
-            content = content.replace('src="', 'src="http://www.laingsburg.k12.mi.us/')
+        """
+        if content.find('src="/') ==-1 or content.find('src="' + oldSite)==-1 :
+            content = content.replace('src="', 'src="' + oldSite)
         else:    
-            content = content.replace('src="/', 'src="http://www.laingsburg.k12.mi.us/')
+            content = content.replace('src="/', 'src="' + oldSite)
+        """
+        content = content.replace('src="/', 'src="' + oldSite)
+        content = content.replace('href="/', 'href="' + oldSite)
         
-        content = content.replace('href="/', 'href="http://www.laingsburg.k12.mi.us/')
+        # In case page with same name exists
+        n=0
+        while True:
+            try:
+                WebDriverWait(driver, 5).until(EC.presence_of_element_located((By.CLASS_NAME, "reMode_html")))
+                break
+            except:
+                n += 1
+                enter_title(name + ' (' + str(n) + ')')
+                driver.find_element_by_id(getID(driver, "ctl00_ContentPlaceHolder1_ctl00_btnSubmit")).click()
+                
+        if n>0:
+            print("Duplicate Page: " + name + ' (' + str(n) + ')')
         
         # paste the code into the HTML editor
-        WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.CLASS_NAME, "reMode_html")))
         driver.find_element_by_class_name("reMode_html").click()
         textbox = driver.find_elements_by_tag_name("iframe")[1]
         time.sleep(1)
@@ -163,7 +189,7 @@ def content_page(url):
     if not isOldPage:
         WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID, getID(driver, "ctl00_ContentPlaceHolder1_ctl00_btnYes"))))
         driver.find_element_by_id(getID(driver, "ctl00_ContentPlaceHolder1_ctl00_btnYes")).click()
-    isOldPage= False
+
     
 # Get the correct ID for buttons/links
 def getID(driver, baseID):
@@ -336,7 +362,7 @@ while True:
     # if content space page or teacher page, there is a 2nd step (and requires an old site URL)
     elif pageChar == '0' or pageChar == '8':
         #dupPageCheck(nameAndLink[0])
-        content_page(nameAndLink[1])
+        content_page(nameAndLink)
 
         
     pagePath.append(driver.current_url)
