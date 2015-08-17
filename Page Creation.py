@@ -38,6 +38,7 @@ def enter_title(name):
 
 
 # Checks for duplicate page error
+"""
 def dupPageCheck(name):
     # if page with same name already exists
     if EC.text_to_be_present_in_element(EC.visibility_of_element_located(getID(driver,'ctl00_ContentPlaceHolder1_ctl06_lblError')), 'Error!   The page name already exists..'):
@@ -56,7 +57,7 @@ def dupPageCheck(name):
             
         global isOldPage
         isOldPage = True
-
+"""
 
 
 # Creates an external link page
@@ -334,7 +335,7 @@ while True:
         currCommaCount = currCommaCount - 1    
     # if content space page or teacher page, there is a 2nd step (and requires an old site URL)
     elif pageChar == '0' or pageChar == '8':
-        dupPageCheck(nameAndLink[0])
+        #dupPageCheck(nameAndLink[0])
         content_page(nameAndLink[1])
 
         
