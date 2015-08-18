@@ -36,6 +36,7 @@ Added functionality to grab content from previous school pages and paste into pa
     * 9 - Wiki
    7. Save the file and move it to the same directory as the program.
 3. At the beginning of the program, change the variables as required.
+
   ```
   # THINGS TO CHANGE:
   csvName = "file.csv"
@@ -43,8 +44,10 @@ Added functionality to grab content from previous school pages and paste into pa
   loginPage = "http://marshallmhs.ss8.sharpschool.com/gateway/Login.aspx?ReturnUrl=%2f"
   divName = "padding: 5px 0; margin-top: 27px;"
   ```
+
   * csvName: the name of the .csv file which you prepared earlier
   * startingPage: the SharpSchool URL which you would like the level 1 pages to be created on
   * loginPage: the SharpSchool URL where you log in to the site
   * divName: the ID or class name of the <div> which contains the content on the old site
-4. Run the program!
+4. Make sure CMS Extension is running.
+5. Run the program!
