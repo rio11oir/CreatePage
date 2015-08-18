@@ -40,9 +40,9 @@ Added functionality to grab content from previous school pages and paste into pa
   ```
   # THINGS TO CHANGE:
   csvName = "file.csv"
-  startingPage = "http://marshallmhs.ss8.sharpschool.com/cms/One.aspx?portalId=1110172&pageId=1110180"
-  loginPage = "http://marshallmhs.ss8.sharpschool.com/gateway/Login.aspx?ReturnUrl=%2f"
-  divName = "padding: 5px 0; margin-top: 27px;"
+  startingPage = "http://example.ss8.sharpschool.com/cms/One.aspx?portalId=1110172&pageId=1110180"
+  loginPage = "http://example.ss8.sharpschool.com/gateway/Login.aspx?ReturnUrl=%2f"
+  divName = "contentContainer"
   ```
 
   * csvName: the name of the .csv file which you prepared earlier
