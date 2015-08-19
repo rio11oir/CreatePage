@@ -18,10 +18,11 @@ divNameBackUp = 'content2'
 from bs4 import BeautifulSoup
 import pyperclip
 from selenium import webdriver
+from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.ui import Select
 from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.common.by import By
 from selenium.webdriver.firefox.webdriver import FirefoxProfile
 import time
 import urllib.request
@@ -148,6 +149,9 @@ def ext_page(nameAndLink):
     if pageType == '0':
         # enter the web address
         driver.find_element_by_id(getID(driver, "ctl00_ContentPlaceHolder1_ctl00_txtUrl")).send_keys(link)
+        if 'https://' in link:
+            select = Select(driver.find_element_by_id(getID(driver, "ctl00_ContentPlaceHolder1_ctl00_ddlProtocol")))
+            select.select_by_visible_text('https://')
     elif pageType == '1':
         # click the 'Browse in File System' button
         driver.find_element_by_id(getID(driver, "ctl00_ContentPlaceHolder1_ctl00_rblTypes_1")).click()
