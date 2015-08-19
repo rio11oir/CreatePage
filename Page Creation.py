@@ -7,11 +7,12 @@ Created on Fri Jul 31 10:34:51 2015
 
 
 # THINGS TO CHANGE:
-csvName = "ONC.csv"
-oldSite = "http://www.laingsburg.k12.mi.us/"
-startingPage = "http://laingsburg.ss8.sharpschool.com/cms/One.aspx?portalId=453627&pageId=1447230"
-loginPage = "http://laingsburg.ss8.sharpschool.com/gateway/Login.aspx?ReturnUrl=%2f"
-divName = "content"
+csvName = "Pearsall Independent School District2.csv"
+oldSite = "http://www.pearsallisd.org//"
+startingPage = "http://pearsall.ss8.sharpschool.com/cms/One.aspx?portalId=777834&pageId=777842"
+loginPage = "http://pearsall.ss8.sharpschool.com/gateway/Login.aspx?ReturnUrl=%2f"
+divName = 'articleBody'
+divNameBackUp = 'content2'
 
 
 from bs4 import BeautifulSoup
@@ -25,9 +26,46 @@ from selenium.webdriver.firefox.webdriver import FirefoxProfile
 import time
 import urllib.request
 
-global isOldPage
-isOldPage = False
+#global isOldPage
+#isOldPage = False
 
+# checks through the csv file for any errors that may appear
+def csvCheck():
+    checkcel = open(csvName, "r")
+    lineNum = 0
+   
+    while True:
+        checkcelLine = checkcel.readline().rstrip()
+        lineNum += 1
+        
+        if checkcelLine == "":
+            break
+        
+        checkcelLine = checkcelLine.strip(' ,"')        
+        
+        pageChar = checkcelLine[0]
+        if str(pageChar).isdigit() :
+            checkcelLine = checkcelLine[1:]
+        else:
+            pageChar = '0'
+        
+        nameAndLink = splitLine(checkcelLine)
+        
+        try:
+            nameAndLink[0]
+        except:
+            print("CSV Error at: " + str(nameAndLink) + " at " + str(lineNum))
+            nameAndLink[0]
+    
+        # if content space page or teacher page or ext link page, requires an old site URL
+        if pageChar == '0' or pageChar == '8' or pageChar == '1':
+            try:
+                nameAndLink[1]
+            except:
+                print("CSV Error at: " + str(nameAndLink) + " at " + str(lineNum))
+                nameAndLink[1]
+    print("Done Checking") 
+    checkcel.close
 
 # enter the title when creating a new page and press submit
 def enter_title(name):
@@ -43,10 +81,24 @@ def enter_title(name):
 
 
 # Checks for duplicate page error
-"""
+
 def dupPageCheck(name):
     # if page with same name already exists
+    n=0
+    while True:
+        try:
+            WebDriverWait(driver, 3).until(EC.presence_of_element_located((By.CLASS_NAME, "reMode_html")))
+            break
+        except:
+            n += 1
+            enter_title(name + ' (' + str(n) + ')')
+            driver.find_element_by_id(getID(driver, "ctl00_ContentPlaceHolder1_ctl00_btnSubmit")).click()
+            
+    if n>0:
+        print("Duplicate Page: " + name + ' (' + str(n) + ')')
+        
 
+"""
     WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.CLASS_NAME, "reMode_html")))
     
     if EC.text_to_be_present_in_element(EC.visibility_of_element_located('ctl00_ContentPlaceHolder1_ctl06_lblError'), 'Error!   The page name already exists..'):
@@ -83,6 +135,8 @@ def ext_page(nameAndLink):
     # 2 - internal page
     pageType = link[0]
     link = link[1:]
+    
+    enter_title(name)
    
     # enter the page name
     #testID = getID(driver, "ctl00_ContentPlaceHolder1_ctl00_txtTitle")
@@ -100,7 +154,7 @@ def ext_page(nameAndLink):
         # enter the web address
         driver.find_element_by_id(getID(driver, "ctl00_ContentPlaceHolder1_ctl00_txtUrl")).send_keys(link)
         driver.find_element_by_id(getID(driver, "chkBtn")).click()
-        WebDriverWait(driver, 1000).until(EC.text_to_be_present_in_element_value((By.ID, 'statusBox'), 'Done'))
+        WebDriverWait(driver, 10000).until(EC.text_to_be_present_in_element_value((By.ID, 'statusBox'), 'Done'))
         EC.text_to_be_present_in_element_value
     elif pageType == '2':
         # click the 'Browse Internal Pages' button
@@ -139,10 +193,13 @@ def content_page(nameAndLink):
         result = urllib.request.urlopen(request)
         html = result.read()
         soup = BeautifulSoup(html, "lxml")
-        content = soup.select("div#" + divName)
-        if (str(content) == None or str(content) == ""):
-            content = soup.find("div", id_ = divName)
+        content = soup.select('div#' + divName)
+        if (str(content) == None or str(content) == ''):
+            content = soup.find('div', id_ = divName)
+            if (str(content) == None or str(content) == ''):
+                content = soup.find('div', id_ = divNameBackUp)
         
+        content.append("")
         content = str(content[0])
         
         """
@@ -155,18 +212,7 @@ def content_page(nameAndLink):
         content = content.replace('href="/', 'href="' + oldSite)
         
         # In case page with same name exists
-        n=0
-        while True:
-            try:
-                WebDriverWait(driver, 5).until(EC.presence_of_element_located((By.CLASS_NAME, "reMode_html")))
-                break
-            except:
-                n += 1
-                enter_title(name + ' (' + str(n) + ')')
-                driver.find_element_by_id(getID(driver, "ctl00_ContentPlaceHolder1_ctl00_btnSubmit")).click()
-                
-        if n>0:
-            print("Duplicate Page: " + name + ' (' + str(n) + ')')
+        dupPageCheck(name)
         
         # paste the code into the HTML editor
         driver.find_element_by_class_name("reMode_html").click()
@@ -176,19 +222,19 @@ def content_page(nameAndLink):
         textbox.send_keys(Keys.CONTROL + "a")
         textbox.send_keys(Keys.CONTROL + "v")
         
-    # Extension things
-    driver.find_element_by_id(getID(driver, "loadBtn")).click()
-    WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.ID, getID(driver, "stripBtn"))))
-    driver.find_element_by_id(getID(driver, "stripBtn")).click()
-    WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.ID, getID(driver, "startBtn"))))
-    driver.find_element_by_id(getID(driver, "startBtn")).click()
-    WebDriverWait(driver, 1000000).until(EC.element_to_be_clickable((By.ID, getID(driver, "startBtn"))))
+        # Extension things
+        driver.find_element_by_id(getID(driver, "loadBtn")).click()
+        WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.ID, getID(driver, "stripBtn"))))
+        driver.find_element_by_id(getID(driver, "stripBtn")).click()
+        WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.ID, getID(driver, "startBtn"))))
+        driver.find_element_by_id(getID(driver, "startBtn")).click()
+        WebDriverWait(driver, 1000000).until(EC.element_to_be_clickable((By.ID, getID(driver, "startBtn"))))
     
     # publish the page
     driver.find_element_by_id(getID(driver, "ctl00_ContentPlaceHolder1_ctl00_ibPublishBottom")).click()
-    if not isOldPage:
-        WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID, getID(driver, "ctl00_ContentPlaceHolder1_ctl00_btnYes"))))
-        driver.find_element_by_id(getID(driver, "ctl00_ContentPlaceHolder1_ctl00_btnYes")).click()
+    #if not isOldPage:
+    WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID, getID(driver, "ctl00_ContentPlaceHolder1_ctl00_btnYes"))))
+    driver.find_element_by_id(getID(driver, "ctl00_ContentPlaceHolder1_ctl00_btnYes")).click()
 
     
 # Get the correct ID for buttons/links
@@ -221,10 +267,11 @@ def splitLine(excelLine):
     if len(nameAndLink) >1:
         nameAndLink[1] = nameAndLink[1].strip(' ,"')
     
-    enter_title(nameAndLink[0])
     return nameAndLink
 
     
+# Checking for errors that can cause breaks in the csv
+csvCheck()
 
 # initial setup: start Firefox and login to website
 firefoxProfile = FirefoxProfile("..\FF Profile")
@@ -253,8 +300,8 @@ print("Migration beginning...")
 # Creates all pages on the .csv file
 while True:
     # variable reset
-    global isOldPage
-    isOldPage = False    
+    #global isOldPage
+    #isOldPage = False    
     
     # read in the next line from the Excel sheet
     excelLine = excelSheet.readline().rstrip()
@@ -352,6 +399,7 @@ while True:
     else:
         # Separate page name and old site URL
         nameAndLink = splitLine(excelLine)
+        enter_title(nameAndLink[0])
         driver.find_element_by_id(getID(driver, "ctl00_ContentPlaceHolder1_ctl00_btnSubmit")).click()
 
         
