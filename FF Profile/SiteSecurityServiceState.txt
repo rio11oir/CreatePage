@@ -1,0 +1,5 @@
+stats.g.doubleclick.net:HSTS	0	16659	1450277954453,1,0
+addons.mozilla.org:HSTS	0	16659	1470927710201,1,0
+addons.cdn.mozilla.net:HSTS	0	16659	1470927703879,1,0
+greasyfork.org:HSTS	0	16659	1470927722859,1,0
+services.addons.mozilla.org:HSTS	0	16659	1470927710841,1,0

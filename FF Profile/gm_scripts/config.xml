@@ -1,0 +1,6 @@
+<UserScriptConfig>
+	<Script basedir="CMS_Extension" checkRemoteUpdates="1" dependhash="da39a3ee5e6b4b0d3255bfef95601890afd80709" description="This script simplifies content migration." enabled="true" noframes="false" filename="CMS_Extension.user.js" installTime="1439391722937" modified="1439391722937" name="CMS Extension" namespace="https://greasyfork.org/users/14054" runAt="document-end" updateMetaStatus="unknown" uuid="aa00c15d-889d-49ed-907c-e53e43d5e7fc" version="1.1.2" installurl="https://greasyfork.org/scripts/11533-cms-extension/code/CMS%20Extension.user.js" updateurl="https://greasyfork.org/scripts/11533-cms-extension/code/CMS%20Extension.user.js">
+		<Grant>none</Grant>
+		<Include>http://*.sharpschool.com/*</Include>
+	</Script>
+</UserScriptConfig>

@@ -1,0 +1,1097 @@
+
+<aside class="secondary addon-reviews c">
+      <div>
+        <span class="stars stars-4" title="Rated 4 out of 5 stars">Rated 4 out of 5 stars</span>
+
+      Average
+    </div>
+      <div>
+    <ul class="grouped_ratings" data-total="956">
+                <li class="c">  <span class="stars stars-5" title="Rated 5 out of 5 stars">Rated 5 out of 5 stars</span>
+
+        <div class="rating_bar" data-num-reviews="598">
+          <span class="bar" style="width:62.0%">
+            <span class="num_ratings">598</span>
+          </span>
+        </div>
+      </li>
+                <li class="c">  <span class="stars stars-4" title="Rated 4 out of 5 stars">Rated 4 out of 5 stars</span>
+
+        <div class="rating_bar" data-num-reviews="137">
+          <span class="bar" style="width:14.0%">
+            <span class="num_ratings">137</span>
+          </span>
+        </div>
+      </li>
+                <li class="c">  <span class="stars stars-3" title="Rated 3 out of 5 stars">Rated 3 out of 5 stars</span>
+
+        <div class="rating_bar" data-num-reviews="62">
+          <span class="bar" style="width:6.0%">
+            <span class="num_ratings">62</span>
+          </span>
+        </div>
+      </li>
+                <li class="c">  <span class="stars stars-2" title="Rated 2 out of 5 stars">Rated 2 out of 5 stars</span>
+
+        <div class="rating_bar" data-num-reviews="33">
+          <span class="bar" style="width:3.0%">
+            <span class="num_ratings">33</span>
+          </span>
+        </div>
+      </li>
+                <li class="c">  <span class="stars stars-1" title="Rated 1 out of 5 stars">Rated 1 out of 5 stars</span>
+
+        <div class="rating_bar" data-num-reviews="71">
+          <span class="bar" style="width:7.0%">
+            <span class="num_ratings">71</span>
+          </span>
+        </div>
+      </li>
+        </ul>
+  </div>
+      <div>
+      <a class="button" id="add-review" href="/en-US/firefox/addon/greasemonkey/reviews/add">Write a review</a>
+    </div>
+    <a id="report-abuse" href="/en-US/developers/docs/policies/contact"
+     class="abuse-image">Report Abuse</a>
+</aside>
+
+<section id="reviews" class="primary island c">
+  <h2>Reviews</h2>
+                  <div class="review">
+        <h3>
+                      <span class="stars stars-5" title="Rated 5 out of 5 stars">Rated 5 out of 5 stars</span>
+
+        </h3>
+        <p class="byline">
+          by <a href="/en-US/firefox/user/tabiuk/" title="TABiUK">TABiUK</a> on August  7, 2015          &middot;
+          <a class="permalink"
+             href="/en-US/firefox/addon/greasemonkey/reviews/733772/">permalink</a>
+                      &middot;
+            <a class="translate" rel="nofollow" target="_blank"
+               href="/en-US/firefox/addon/greasemonkey/reviews/733772/translate/en-US">translate</a>
+                  </p>
+        <p class="description">Great</p>
+              </div>
+          <div class="review">
+        <h3>
+                      <span class="stars stars-5" title="Rated 5 out of 5 stars">Rated 5 out of 5 stars</span>
+
+        </h3>
+        <p class="byline">
+          by <a href="/en-US/firefox/user/RavenMind/" title="RavenMind">RavenMind</a> on August  3, 2015          &middot;
+          <a class="permalink"
+             href="/en-US/firefox/addon/greasemonkey/reviews/732658/">permalink</a>
+                      &middot;
+            <a class="translate" rel="nofollow" target="_blank"
+               href="/en-US/firefox/addon/greasemonkey/reviews/732658/translate/en-US">translate</a>
+                  </p>
+        <p class="description">Please make this great add-on available doe SEAMONKEY!!! I use old hardware for my Linux machine &amp;amp; can&#39;t run FF but SeaMonkey works great. Would love to be able to use this. Your work is very much appreciated!!<br><br>(Unrelated Side Note) Anthony! I was surprised to see you&#39;re a Dev on this! Funny coincidence, I actually used to follow your blog on Arantius since back in, oh, about 2002.</p>
+              </div>
+          <div class="review">
+        <h3>
+                      <b>Why not for SeaMonkey?</b>
+                      <span class="stars stars-4" title="Rated 4 out of 5 stars">Rated 4 out of 5 stars</span>
+
+        </h3>
+        <p class="byline">
+          by <a href="/en-US/firefox/user/SFJLC/" title="SFJLC">SFJLC</a> on July 30, 2015          &middot;
+          <a class="permalink"
+             href="/en-US/firefox/addon/greasemonkey/reviews/731022/">permalink</a>
+                      &middot;
+            <a class="translate" rel="nofollow" target="_blank"
+               href="/en-US/firefox/addon/greasemonkey/reviews/731022/translate/en-US">translate</a>
+                  </p>
+        <p class="description">I like this add-on, I&#39;m a previous user of Scriptish, I read somewhere the development stopped because this add-on development reactivated so the developer went here; still working for the scripts I use, currently using Greasemonkey Port 2.3 and working good on the scripts I use.<br><br>I don&#39;t understand Seamonkey having Firefox core and advertising compatibility with it and having their developments linked, this important add-on and others can&#39;t be developed for both Browsers.</p>
+              </div>
+              <p>
+        <a class="more-info" href="/en-US/firefox/addon/greasemonkey/reviews/">
+          See all 956 user reviews        </a>
+      </p>
+      
+</section>
+
+<aside id="related" class="secondary metadata c">
+            <h3>Related Categories</h3>
+      <ul>
+                <li>
+          <a href="/en-US/firefox/extensions/other/">
+            Other
+          </a>
+        </li>
+              </ul>
+        
+</aside>
+
+  <section class="primary island c">
+          <section id="recommendations-grid">
+        <h2 class="compact-bottom">Often used with&hellip;</h2>
+        <ul class="listing-grid c cols-3">
+    <section>
+      <li>
+      <div class="addon hovercard">
+    <div class="icon">
+      <a href="/en-US/firefox/addon/snap-links/?src=dp-dl-oftenusedwith">
+              <img src="https://addons.cdn.mozilla.net/user-media/addon_icons/4/4336-32.png?modified=1337297368" alt="">
+            </a>
+    </div>
+    <div class="summary">
+      <a href="/en-US/firefox/addon/snap-links/?src=dp-dl-oftenusedwith">
+        <h3>Snap Links</h3>
+                              <div class="category more-info">Appearance</div>
+                        </a>
+        <div class="vital">
+            
+<span class="rating">
+              <span class="stars stars-4" title="Rated 4 out of 5 stars">Rated 4 out of 5 stars</span>
+
+      <a href="/en-US/firefox/addon/snap-links/reviews/">(286)</a>
+      </span>
+      </div>
+
+          </div>
+  <div class="more">
+    
+<div class="install-shell">
+<div class="install "
+       data-addon="4336"
+  data-icon="https://addons.cdn.mozilla.net/user-media/addon_icons/4/4336-32.png?modified=1337297368"
+  data-developers="/en-US/firefox/addon/snap-links/developers"
+  data-versions="/en-US/firefox/addon/4336/versions/"
+  data-name="Snap Links"
+  
+  data-min="1.0+"
+  data-max="3.0a8"
+  data-is-compatible="true"
+  data-is-compatible-app="false"
+  data-compat-overrides="[]"
+>
+  <p class="install-button">
+                            <a class="button  download "
+  data-hash="sha256:edef783da7bc03b125b1500f5442d1aadb12a44738da1c4548f845a89081bbdb"
+      href="/firefox/downloads/latest/4336/addon-4336-latest.xpi?src=dp-hc-oftenusedwith"
+  >
+      <b></b>
+    <span>
+      Download Now
+          </span>
+  </a>
+      </p>
+</div> 
+
+      <div class="d2c-reasons-popup popup">
+      <p>This add-on is not compatible with your version of Firefox because of the following:</p>
+      <ul></ul>
+    </div>
+  
+</div> 
+    <span class="addon-summary">
+      Note from Mozilla: This add-on has been discontinued. Try <a href="https://addons.mozilla.org/firefox/addon/SnapLinksPlus/" rel="nofollow">Snap Links Plus</a> instead.<br>Snap Links allows users to easily open multiple links in new tabs by drawing a box around them.
+    </span>
+    <div class="byline">
+      by <a href="/en-US/firefox/user/pedro-fonseca/" title="Pedro Fonseca">Pedro Fonseca</a>    </div>
+          <div class="vitals">
+          <div class="vital">
+                  <span class="adu">
+                    21,275 users        </span>
+            </div>
+
+      </div>
+      </div>
+</div>
+    </li>
+      <li>
+      <div class="addon hovercard">
+    <div class="icon">
+      <a href="/en-US/firefox/addon/greasefire/?src=dp-dl-oftenusedwith">
+              <img src="https://addons.cdn.mozilla.net/user-media/addon_icons/8/8352-32.png?modified=1394364041" alt="">
+            </a>
+    </div>
+    <div class="summary">
+      <a href="/en-US/firefox/addon/greasefire/?src=dp-dl-oftenusedwith">
+        <h3>Greasefire</h3>
+                              <div class="category more-info">Web Development</div>
+                        </a>
+        <div class="vital">
+            
+<span class="rating">
+              <span class="stars stars-4" title="Rated 4 out of 5 stars">Rated 4 out of 5 stars</span>
+
+      <a href="/en-US/firefox/addon/greasefire/reviews/">(176)</a>
+      </span>
+      </div>
+
+          </div>
+  <div class="more">
+    
+<div class="install-shell">
+<div class="install "
+       data-addon="8352"
+  data-icon="https://addons.cdn.mozilla.net/user-media/addon_icons/8/8352-32.png?modified=1394364041"
+  data-developers="/en-US/firefox/addon/greasefire/developers"
+  data-versions="/en-US/firefox/addon/8352/versions/"
+  data-name="Greasefire"
+  
+  data-min="4.0"
+  data-max="17.*"
+  data-is-compatible="true"
+  data-is-compatible-app="true"
+  data-compat-overrides="[]"
+>
+  <p class="install-button">
+                            <a class="button  download "
+  data-hash="sha256:63584c6ae4864cb766db079a9a20ecdef7f472be40dc90e35fd4c8fb4e6e8227"
+      href="/firefox/downloads/latest/8352/addon-8352-latest.xpi?src=dp-hc-oftenusedwith"
+  >
+      <b></b>
+    <span>
+      Download Now
+          </span>
+  </a>
+      </p>
+</div> 
+
+      <div class="d2c-reasons-popup popup">
+      <p>This add-on is not compatible with your version of Firefox because of the following:</p>
+      <ul></ul>
+    </div>
+  
+</div> 
+<div class="backup-button hidden install-wrapper">
+<div class="install-shell">
+<div class="install "
+       data-addon="8352"
+  data-icon="https://addons.cdn.mozilla.net/user-media/addon_icons/8/8352-32.png?modified=1394364041"
+  data-developers="/en-US/firefox/addon/greasefire/developers"
+  data-versions="/en-US/firefox/addon/8352/versions/"
+  data-name="Greasefire"
+  
+  data-min="3.0"
+  data-max="3.6.*"
+  data-is-compatible="true"
+  data-is-compatible-app="false"
+  data-compat-overrides="[]"
+>
+  <p class="install-button">
+                            <a class="button  download "
+  data-hash="sha256:5fd4257c7f7fcb817bcde61dd45815547ad03222ceafaf56db31498237410c9d"
+      href="https://addons.mozilla.org/firefox/downloads/file/53824/greasefire-1.0.4-fx.xpi?src=dp-hc-oftenusedwith"
+  >
+      <b></b>
+    <span>
+      Download Now
+          </span>
+  </a>
+      </p>
+</div> 
+
+      <div class="d2c-reasons-popup popup">
+      <p>This add-on is not compatible with your version of Firefox because of the following:</p>
+      <ul></ul>
+    </div>
+  
+</div> </div>
+    <span class="addon-summary">
+      Automatically find user scripts on <a href="http://outgoing.mozilla.org/v1/1bd61ef31a02908e0364e79979b98a9eebedcb6b/http%3A//Userscripts.org" rel="nofollow">Userscripts.org</a> (requires Greasemonkey or Scriptish)
+    </span>
+    <div class="byline">
+      by <a href="/en-US/firefox/user/steve-krulewitz/" title="Steve Krulewitz">Steve Krulewitz</a>, <a href="/en-US/firefox/user/erikvold/" title="Erik Vold">Erik Vold</a>    </div>
+          <div class="vitals">
+          <div class="vital">
+                  <span class="adu">
+                    13,644 users        </span>
+            </div>
+
+      </div>
+      </div>
+</div>
+    </li>
+      <li>
+      <div class="addon hovercard">
+    <div class="icon">
+      <a href="/en-US/firefox/addon/groundspeed/?src=dp-dl-oftenusedwith">
+              <img src="https://addons.cdn.mozilla.net/user-media/addon_icons/46/46698-32.png?modified=1386639399" alt="">
+            </a>
+    </div>
+    <div class="summary">
+      <a href="/en-US/firefox/addon/groundspeed/?src=dp-dl-oftenusedwith">
+        <h3>Groundspeed</h3>
+                              <div class="category more-info">Privacy &amp; Security</div>
+                        </a>
+        <div class="vital">
+            
+<span class="rating">
+              <span class="stars stars-5" title="Rated 5 out of 5 stars">Rated 5 out of 5 stars</span>
+
+      <a href="/en-US/firefox/addon/groundspeed/reviews/">(7)</a>
+      </span>
+      </div>
+
+          </div>
+  <div class="more">
+    
+<div class="install-shell">
+<div class="install "
+       data-addon="46698"
+  data-icon="https://addons.cdn.mozilla.net/user-media/addon_icons/46/46698-32.png?modified=1386639399"
+  data-developers="/en-US/firefox/addon/groundspeed/developers"
+  data-versions="/en-US/firefox/addon/46698/versions/"
+  data-name="Groundspeed"
+  
+  data-min="3.0"
+  data-max="21.*"
+  data-is-compatible="true"
+  data-is-compatible-app="true"
+  data-compat-overrides="[]"
+>
+  <p class="install-button">
+                            <a class="button  download "
+  data-hash="sha256:553abea52600853f54a0935ac56f7c2b64efdffbc128f01865f3f731b3f5b957"
+      href="/firefox/downloads/latest/46698/addon-46698-latest.xpi?src=dp-hc-oftenusedwith"
+  >
+      <b></b>
+    <span>
+      Download Now
+          </span>
+  </a>
+      </p>
+</div> 
+
+      <div class="d2c-reasons-popup popup">
+      <p>This add-on is not compatible with your version of Firefox because of the following:</p>
+      <ul></ul>
+    </div>
+  
+</div> 
+    <span class="addon-summary">
+      Groundspeed is an add-on that allows security testers to manipulate the application user interface to eliminate annoying limitations and client-side controls that interfere with the web application penetration tests.
+    </span>
+    <div class="byline">
+      by <a href="/en-US/firefox/user/fmsnewyork/" title="fmsnewyork">fmsnewyork</a>    </div>
+          <div class="vitals">
+          <div class="vital">
+                  <span class="adu">
+                    2,115 users        </span>
+            </div>
+
+      </div>
+      </div>
+</div>
+    </li>
+      <li>
+      <div class="addon hovercard">
+    <div class="icon">
+      <a href="/en-US/firefox/addon/xowcomicscom-toolbar/?src=dp-dl-oftenusedwith">
+              <img src="https://addons.cdn.mozilla.net/user-media/addon_icons/90/90992-32.png?modified=1298481907" alt="">
+            </a>
+    </div>
+    <div class="summary">
+      <a href="/en-US/firefox/addon/xowcomicscom-toolbar/?src=dp-dl-oftenusedwith">
+        <h3>XOWComics.com Toolbar</h3>
+                              <div class="category more-info">Social &amp; Communication</div>
+                        </a>
+        <div class="vital">
+            
+<span class="rating">
+              <span class="stars stars-1" title="Rated 1 out of 5 stars">Rated 1 out of 5 stars</span>
+
+      <a href="/en-US/firefox/addon/xowcomicscom-toolbar/reviews/">(1)</a>
+      </span>
+      </div>
+
+          </div>
+  <div class="more">
+    
+<div class="install-shell">
+<div class="install "
+       data-addon="90992"
+  data-icon="https://addons.cdn.mozilla.net/user-media/addon_icons/90/90992-32.png?modified=1298481907"
+  data-developers="/en-US/firefox/addon/xowcomicscom-toolbar/developers"
+  data-versions="/en-US/firefox/addon/90992/versions/"
+  data-name="XOWComics.com Toolbar"
+  
+  data-min="1.5"
+  data-max="4.0.*"
+  data-is-compatible="true"
+  data-is-compatible-app="true"
+  data-compat-overrides="[]"
+>
+  <p class="install-button">
+                            <a class="button  download "
+  data-hash="sha256:197e4e3c75d140779aa95cf0f48675df56fe2c6512666f62a9efe59bc98e8c13"
+      href="/firefox/downloads/latest/90992/addon-90992-latest.xpi?src=dp-hc-oftenusedwith"
+  >
+      <b></b>
+    <span>
+      Download Now
+          </span>
+  </a>
+      </p>
+</div> 
+
+      <div class="d2c-reasons-popup popup">
+      <p>This add-on is not compatible with your version of Firefox because of the following:</p>
+      <ul></ul>
+    </div>
+  
+</div> 
+    <span class="addon-summary">
+      Firefox toolbar extension for XOWComics.com comic book collection management.
+    </span>
+    <div class="byline">
+      by <a href="/en-US/firefox/user/nyrdyv/" title="nyrdyv">nyrdyv</a>    </div>
+          <div class="vitals">
+          <div class="vital">
+                  <span class="adu">
+                    15 users        </span>
+            </div>
+
+      </div>
+      </div>
+</div>
+    </li>
+      <li>
+      <div class="addon hovercard">
+    <div class="icon">
+      <a href="/en-US/firefox/addon/uc/?src=dp-dl-oftenusedwith">
+              <img src="https://addons.cdn.mozilla.net/user-media/addon_icons/122/122179-32.png?modified=1321574288" alt="">
+            </a>
+    </div>
+    <div class="summary">
+      <a href="/en-US/firefox/addon/uc/?src=dp-dl-oftenusedwith">
+        <h3>uc</h3>
+                              <div class="category more-info">Other</div>
+                        </a>
+        <div class="vital">
+            
+<span class="rating">
+              <span class="stars stars-5" title="Rated 5 out of 5 stars">Rated 5 out of 5 stars</span>
+
+      <a href="/en-US/firefox/addon/uc/reviews/">(17)</a>
+      </span>
+      </div>
+
+          </div>
+  <div class="more">
+    
+<div class="install-shell">
+<div class="install "
+       data-addon="122179"
+  data-icon="https://addons.cdn.mozilla.net/user-media/addon_icons/122/122179-32.png?modified=1321574288"
+  data-developers="/en-US/firefox/addon/uc/developers"
+  data-versions="/en-US/firefox/addon/122179/versions/"
+  data-name="uc"
+  
+  data-min="20.0"
+  data-max="40.*"
+  data-is-compatible="true"
+  data-is-compatible-app="true"
+  data-compat-overrides="[]"
+>
+  <p class="install-button">
+                            <a class="button  download "
+  data-hash="sha256:6e192c60425070b0b35b62fe5bf21ce47f75559c163599b333bd0d0304bf9bec"
+      href="/firefox/downloads/latest/122179/addon-122179-latest.xpi?src=dp-hc-oftenusedwith"
+  >
+      <b></b>
+    <span>
+      Download Now
+          </span>
+  </a>
+      </p>
+</div> 
+
+      <div class="d2c-reasons-popup popup">
+      <p>This add-on is not compatible with your version of Firefox because of the following:</p>
+      <ul></ul>
+    </div>
+  
+</div> 
+<div class="backup-button hidden install-wrapper">
+<div class="install-shell">
+<div class="install "
+       data-addon="122179"
+  data-icon="https://addons.cdn.mozilla.net/user-media/addon_icons/122/122179-32.png?modified=1321574288"
+  data-developers="/en-US/firefox/addon/uc/developers"
+  data-versions="/en-US/firefox/addon/122179/versions/"
+  data-name="uc"
+  
+  data-min="3.5"
+  data-max="6.0a1"
+  data-is-compatible="true"
+  data-is-compatible-app="true"
+  data-compat-overrides="[]"
+>
+  <p class="install-button">
+                            <a class="button  download "
+  data-hash="sha256:4e73f77ee3f71e086ac653d70687ec224187106f03ee4ee45359f90a1ee2c124"
+      href="https://addons.mozilla.org/firefox/downloads/file/118569/uc-20110421-fx.xpi?src=dp-hc-oftenusedwith"
+  >
+      <b></b>
+    <span>
+      Download Now
+          </span>
+  </a>
+      </p>
+</div> 
+
+      <div class="d2c-reasons-popup popup">
+      <p>This add-on is not compatible with your version of Firefox because of the following:</p>
+      <ul></ul>
+    </div>
+  
+</div> </div>
+    <span class="addon-summary">
+      A userChromeJS clone with built-in subscript/overlay loader capability.
+    </span>
+    <div class="byline">
+      by <a href="/en-US/firefox/user/matyr/" title="matyr">matyr</a>    </div>
+          <div class="vitals">
+          <div class="vital">
+                  <span class="adu">
+                    1,129 users        </span>
+            </div>
+
+      </div>
+      </div>
+</div>
+    </li>
+      <li>
+      <div class="addon hovercard">
+    <div class="icon">
+      <a href="/en-US/firefox/addon/smart-text/?src=dp-dl-oftenusedwith">
+              <img src="https://addons.cdn.mozilla.net/user-media/addon_icons/161/161982-32.png?modified=1365975045" alt="">
+            </a>
+    </div>
+    <div class="summary">
+      <a href="/en-US/firefox/addon/smart-text/?src=dp-dl-oftenusedwith">
+        <h3>Smart location (smart text)</h3>
+                              <div class="category more-info">Appearance</div>
+                        </a>
+        <div class="vital">
+            
+<span class="rating">
+              <span class="stars stars-4" title="Rated 4 out of 5 stars">Rated 4 out of 5 stars</span>
+
+      <a href="/en-US/firefox/addon/smart-text/reviews/">(54)</a>
+      </span>
+      </div>
+
+          </div>
+  <div class="more">
+    
+<div class="install-shell">
+<div class="install "
+       data-addon="161982"
+  data-icon="https://addons.cdn.mozilla.net/user-media/addon_icons/161/161982-32.png?modified=1365975045"
+  data-developers="/en-US/firefox/addon/smart-text/developers"
+  data-versions="/en-US/firefox/addon/161982/versions/"
+  data-name="Smart location (smart text)"
+  
+  data-min="4.0b1"
+  data-max="20.*"
+  data-is-compatible="true"
+  data-is-compatible-app="true"
+  data-compat-overrides="[]"
+>
+  <p class="install-button">
+                            <a class="button  download "
+  data-hash="sha256:14feed98cfa88e2e766a8d30776c954ed6d86cf651916ef1a002e2958221c3de"
+      href="/firefox/downloads/latest/161982/addon-161982-latest.xpi?src=dp-hc-oftenusedwith"
+  >
+      <b></b>
+    <span>
+      Download Now
+          </span>
+  </a>
+      </p>
+</div> 
+
+      <div class="d2c-reasons-popup popup">
+      <p>This add-on is not compatible with your version of Firefox because of the following:</p>
+      <ul></ul>
+    </div>
+  
+</div> 
+<div class="backup-button hidden install-wrapper">
+<div class="install-shell">
+<div class="install "
+       data-addon="161982"
+  data-icon="https://addons.cdn.mozilla.net/user-media/addon_icons/161/161982-32.png?modified=1365975045"
+  data-developers="/en-US/firefox/addon/smart-text/developers"
+  data-versions="/en-US/firefox/addon/161982/versions/"
+  data-name="Smart location (smart text)"
+  
+  data-min="3.6"
+  data-max="4.0b4pre"
+  data-is-compatible="true"
+  data-is-compatible-app="false"
+  data-compat-overrides="[]"
+>
+  <p class="install-button">
+                            <a class="button  download "
+  data-hash="sha256:56d93051fd4ead45c67055249868bd5da31eef6eacff43071cb300d3a888d8d4"
+      href="https://addons.mozilla.org/firefox/downloads/file/96072/smart_text-3.0.0-fx.xpi?src=dp-hc-oftenusedwith"
+  >
+      <b></b>
+    <span>
+      Download Now
+          </span>
+  </a>
+      </p>
+</div> 
+
+      <div class="d2c-reasons-popup popup">
+      <p>This add-on is not compatible with your version of Firefox because of the following:</p>
+      <ul></ul>
+    </div>
+  
+</div> </div>
+    <span class="addon-summary">
+      Textbox and much more...<br>Formated, linkified, scrollable and selectable text in Location bar.
+    </span>
+    <div class="byline">
+      by <a href="/en-US/firefox/user/nik4name/" title="Harutyun Amirjanyan">Harutyun Amirjanyan</a>    </div>
+          <div class="vitals">
+          <div class="vital">
+                  <span class="adu">
+                    908 users        </span>
+            </div>
+
+      </div>
+      </div>
+</div>
+    </li>
+    </section>
+</ul>
+      </section>
+              <section id="collections-grid">
+        <h2>Part of these Collections</h2>
+        <ul class="listing-grid c cols-3">
+    <section>
+      <li>
+      <div class="hovercard collection addon">
+        <a href="/en-US/firefox/collections/mozilla/webdeveloper/">
+          <div class="icon">
+                          <img src="https://addons.cdn.mozilla.net/user-media/collection_icons/0/2.png?m=1439305696" alt="">
+                      </div>
+          <div class="summary">
+            <h3>Web Developer&#39;s Toolbox</h3>
+            <p class="desc">Speed up the development process by using add-ons to troubleshoot, edit, and debug web projects without ever clicking away from Firefox.</p>
+          </div>
+        </a>
+        <div class="more">
+                    <span>13</span> add-ons          &middot;
+                    <span>15,855</span> followers        </div>
+      </div>
+    </li>
+      <li>
+      <div class="hovercard collection addon">
+        <a href="/en-US/firefox/collections/lifehackeraddons/lifehacker_musthaves/">
+          <div class="icon">
+                          <img src="https://addons.cdn.mozilla.net/static/img/icons/collection.png" alt="">
+                      </div>
+          <div class="summary">
+            <h3>Lifehacker&#39;s Must-Have Extensions</h3>
+            <p class="desc">Ten broadly useful extensions, as detailed at: http://bit.ly/10Xxc (There are technically 10, but Gears can&#39;t be installed from Mozilla&#39;s site)</p>
+          </div>
+        </a>
+        <div class="more">
+                    <span>9</span> add-ons          &middot;
+                    <span>6,043</span> followers        </div>
+      </div>
+    </li>
+      <li>
+      <div class="hovercard collection addon">
+        <a href="/en-US/firefox/collections/davy-jones/optimizefirefox/">
+          <div class="icon">
+                          <img src="https://addons.cdn.mozilla.net/user-media/collection_icons/32/32177.png?m=1439213021" alt="">
+                      </div>
+          <div class="summary">
+            <h3>optimized firefox</h3>
+            <p class="desc">A collection of carefully chosen eclectic addons which extends the power and functionality of Firefox. Subscribe to my collection so as to keep abreast with the development of new and better addons.</p>
+          </div>
+        </a>
+        <div class="more">
+                    <span>170</span> add-ons          &middot;
+                    <span>5,165</span> followers        </div>
+      </div>
+    </li>
+    </section>
+</ul>
+
+      </section>
+                <section id="author-addons">
+        <h2>
+                      Other add-ons by these authors                  </h2>
+        <ul class="listing-grid c cols-3">
+    <section>
+      <li>
+      <div class="addon hovercard">
+    <div class="icon">
+      <a href="/en-US/firefox/addon/uppity/?src=dp-dl-othersby">
+              <img src="https://addons.cdn.mozilla.net/user-media/addon_icons/0/869-32.png?modified=1309353639" alt="">
+            </a>
+    </div>
+    <div class="summary">
+      <a href="/en-US/firefox/addon/uppity/?src=dp-dl-othersby">
+        <h3>Uppity</h3>
+                              <div class="category more-info">Other</div>
+                        </a>
+        <div class="vital">
+            
+<span class="rating">
+              <span class="stars stars-5" title="Rated 5 out of 5 stars">Rated 5 out of 5 stars</span>
+
+      <a href="/en-US/firefox/addon/uppity/reviews/">(44)</a>
+      </span>
+      </div>
+
+          </div>
+  <div class="more">
+    
+<div class="install-shell">
+<div class="install "
+       data-addon="869"
+  data-icon="https://addons.cdn.mozilla.net/user-media/addon_icons/0/869-32.png?modified=1309353639"
+  data-developers="/en-US/firefox/addon/uppity/developers"
+  data-versions="/en-US/firefox/addon/869/versions/"
+  data-name="Uppity"
+  
+  data-min="4.0b12"
+  data-max="27.*"
+  data-is-compatible="true"
+  data-is-compatible-app="true"
+  data-compat-overrides="[]"
+>
+  <p class="install-button">
+                            <a class="button  download "
+  data-hash="sha256:b2baf8f033574710cd731aaf0d0a3444a13e159545cf773f3b66aa2f70680f0a"
+      href="/firefox/downloads/latest/869/addon-869-latest.xpi?src=dp-hc-othersby"
+  >
+      <b></b>
+    <span>
+      Download Now
+          </span>
+  </a>
+      </p>
+</div> 
+
+      <div class="d2c-reasons-popup popup">
+      <p>This add-on is not compatible with your version of Firefox because of the following:</p>
+      <ul></ul>
+    </div>
+  
+</div> 
+<div class="backup-button hidden install-wrapper">
+<div class="install-shell">
+<div class="install "
+       data-addon="869"
+  data-icon="https://addons.cdn.mozilla.net/user-media/addon_icons/0/869-32.png?modified=1309353639"
+  data-developers="/en-US/firefox/addon/uppity/developers"
+  data-versions="/en-US/firefox/addon/869/versions/"
+  data-name="Uppity"
+  
+  data-min="3.0"
+  data-max="3.6.*"
+  data-is-compatible="true"
+  data-is-compatible-app="false"
+  data-compat-overrides="[]"
+>
+  <p class="install-button">
+                            <a class="button  download "
+  data-hash="sha256:8e12d766ad34b3e1f6cacf9cc14fb1883944687b5a28f4e9a1763824cc92229c"
+      href="https://addons.mozilla.org/firefox/downloads/file/69992/uppity-1.5.6-fx.xpi?src=dp-hc-othersby"
+  >
+      <b></b>
+    <span>
+      Download Now
+          </span>
+  </a>
+      </p>
+</div> 
+
+      <div class="d2c-reasons-popup popup">
+      <p>This add-on is not compatible with your version of Firefox because of the following:</p>
+      <ul></ul>
+    </div>
+  
+</div> </div>
+    <span class="addon-summary">
+      Navigate up one level (directory).  It will remove an in-page anchor, the querystring, the file, and the last directory in that order, whichever is first found...
+    </span>
+    <div class="byline">
+      by <a href="/en-US/firefox/user/arantius/" title="Anthony Lieuallen">Anthony Lieuallen</a>    </div>
+          <div class="vitals">
+          <div class="vital">
+                  <span class="adu">
+                    5,552 users        </span>
+            </div>
+
+      </div>
+      </div>
+</div>
+    </li>
+      <li>
+      <div class="addon hovercard">
+    <div class="icon">
+      <a href="/en-US/firefox/addon/tiny-menu/?src=dp-dl-othersby">
+              <img src="https://addons.cdn.mozilla.net/user-media/addon_icons/1/1455-32.png?modified=1310112015" alt="">
+            </a>
+    </div>
+    <div class="summary">
+      <a href="/en-US/firefox/addon/tiny-menu/?src=dp-dl-othersby">
+        <h3>Tiny Menu</h3>
+                                </a>
+        <div class="vital">
+            
+<span class="rating">
+              <span class="stars stars-4" title="Rated 4 out of 5 stars">Rated 4 out of 5 stars</span>
+
+      <a href="/en-US/firefox/addon/tiny-menu/reviews/">(297)</a>
+      </span>
+      </div>
+
+          </div>
+  <div class="more">
+    
+<div class="install-shell">
+<div class="install "
+       data-addon="1455"
+  data-icon="https://addons.cdn.mozilla.net/user-media/addon_icons/1/1455-32.png?modified=1310112015"
+  data-developers="/en-US/firefox/addon/tiny-menu/developers"
+  data-versions="/en-US/firefox/addon/1455/versions/"
+  data-name="Tiny Menu"
+  
+  data-min="2.0"
+  data-max="16.*"
+  data-is-compatible="true"
+  data-is-compatible-app="true"
+  data-compat-overrides="[]"
+>
+  <p class="install-button">
+                            <a class="button  download "
+  data-hash="sha256:2ccc68765bc6fd8242967625121b7e9d661b69fe6498df5ff731400bd6561748"
+      href="/firefox/downloads/latest/1455/addon-1455-latest.xpi?src=dp-hc-othersby"
+  >
+      <b></b>
+    <span>
+      Download Now
+          </span>
+  </a>
+      </p>
+</div> 
+
+      <div class="d2c-reasons-popup popup">
+      <p>This add-on is not compatible with your version of Firefox because of the following:</p>
+      <ul></ul>
+    </div>
+  
+</div> 
+    <span class="addon-summary">
+      Replace the standard menu bar with a tiny menu popup.
+    </span>
+    <div class="byline">
+      by <a href="/en-US/firefox/user/arantius/" title="Anthony Lieuallen">Anthony Lieuallen</a>    </div>
+          <div class="vitals">
+          <div class="vital">
+                  <span class="adu">
+                    7,023 users        </span>
+            </div>
+
+      </div>
+      </div>
+</div>
+    </li>
+      <li>
+      <div class="addon hovercard">
+    <div class="icon">
+      <a href="/en-US/firefox/addon/resurrect-pages/?src=dp-dl-othersby">
+              <img src="https://addons.cdn.mozilla.net/user-media/addon_icons/2/2570-32.png?modified=1353925085" alt="">
+            </a>
+    </div>
+    <div class="summary">
+      <a href="/en-US/firefox/addon/resurrect-pages/?src=dp-dl-othersby">
+        <h3>Resurrect Pages</h3>
+                              <div class="category more-info">Search Tools</div>
+                        </a>
+        <div class="vital">
+            
+<span class="rating">
+              <span class="stars stars-5" title="Rated 5 out of 5 stars">Rated 5 out of 5 stars</span>
+
+      <a href="/en-US/firefox/addon/resurrect-pages/reviews/">(66)</a>
+      </span>
+      </div>
+
+          </div>
+  <div class="more">
+    
+<div class="install-shell">
+<div class="install featuredaddon"
+       data-addon="2570"
+  data-icon="https://addons.cdn.mozilla.net/user-media/addon_icons/2/2570-32.png?modified=1353925085"
+  data-developers="/en-US/firefox/addon/resurrect-pages/developers"
+  data-versions="/en-US/firefox/addon/2570/versions/"
+  data-name="Resurrect Pages"
+  
+  data-min="3.0"
+  data-max="26.*"
+  data-is-compatible="true"
+  data-is-compatible-app="true"
+  data-compat-overrides="[]"
+>
+  <p class="install-button">
+                            <a class="button  download "
+  data-hash="sha256:8881deaf314b0b212b657c34efee7fdc854241bc318346749c7a2754f7a9014c"
+      href="/firefox/downloads/latest/2570/addon-2570-latest.xpi?src=dp-hc-othersby"
+  >
+      <b></b>
+    <span>
+      Download Now
+          </span>
+  </a>
+      </p>
+</div> 
+
+      <div class="d2c-reasons-popup popup">
+      <p>This add-on is not compatible with your version of Firefox because of the following:</p>
+      <ul></ul>
+    </div>
+  
+</div> 
+    <span class="addon-summary">
+      Dead pages, broken links, the scourge of the internet. Powerhouse sites like Slashdot and Digg can bring a server to its knees. What do we do when a page is dead but we still want to see it? Call in the clerics, and perform a resurrection...
+    </span>
+    <div class="byline">
+      by <a href="/en-US/firefox/user/arantius/" title="Anthony Lieuallen">Anthony Lieuallen</a>    </div>
+          <div class="vitals">
+          <div class="vital">
+                  <span class="adu">
+                    24,747 users        </span>
+            </div>
+
+      </div>
+      </div>
+</div>
+    </li>
+      <li>
+      <div class="addon hovercard">
+    <div class="icon">
+      <a href="/en-US/firefox/addon/karma-blocker/?src=dp-dl-othersby">
+              <img src="https://addons.cdn.mozilla.net/user-media/addon_icons/5/5230-32.png?modified=1371475254" alt="">
+            </a>
+    </div>
+    <div class="summary">
+      <a href="/en-US/firefox/addon/karma-blocker/?src=dp-dl-othersby">
+        <h3>Karma Blocker</h3>
+                              <div class="category more-info">Privacy &amp; Security</div>
+                        </a>
+        <div class="vital">
+            
+<span class="rating">
+              <span class="stars stars-4" title="Rated 4 out of 5 stars">Rated 4 out of 5 stars</span>
+
+      <a href="/en-US/firefox/addon/karma-blocker/reviews/">(86)</a>
+      </span>
+      </div>
+
+          </div>
+  <div class="more">
+    
+<div class="install-shell">
+<div class="install "
+       data-addon="5230"
+  data-icon="https://addons.cdn.mozilla.net/user-media/addon_icons/5/5230-32.png?modified=1371475254"
+  data-developers="/en-US/firefox/addon/karma-blocker/developers"
+  data-versions="/en-US/firefox/addon/5230/versions/"
+  data-name="Karma Blocker"
+  
+  data-min="35.0"
+  data-max="40.*"
+  data-is-compatible="true"
+  data-is-compatible-app="true"
+  data-compat-overrides="[]"
+>
+  <p class="install-button">
+                            <a class="button  download "
+  data-hash="sha256:c1b3ea6533245aab390209442d4d64a3781999ef3a6e3f3fac90fb84af1da871"
+      href="/firefox/downloads/latest/5230/addon-5230-latest.xpi?src=dp-hc-othersby"
+  >
+      <b></b>
+    <span>
+      Download Now
+          </span>
+  </a>
+      </p>
+</div> 
+
+      <div class="d2c-reasons-popup popup">
+      <p>This add-on is not compatible with your version of Firefox because of the following:</p>
+      <ul></ul>
+    </div>
+  
+</div> 
+<div class="backup-button hidden install-wrapper">
+<div class="install-shell">
+<div class="install "
+       data-addon="5230"
+  data-icon="https://addons.cdn.mozilla.net/user-media/addon_icons/5/5230-32.png?modified=1371475254"
+  data-developers="/en-US/firefox/addon/karma-blocker/developers"
+  data-versions="/en-US/firefox/addon/5230/versions/"
+  data-name="Karma Blocker"
+  
+  data-min="3.0"
+  data-max="3.6.*"
+  data-is-compatible="true"
+  data-is-compatible-app="false"
+  data-compat-overrides="[]"
+>
+  <p class="install-button">
+                            <a class="button  download "
+  data-hash="sha256:c8b66f85bcad12b010d61758c7dc00df038e2d24a33e53519a6edb27f454f1ef"
+      href="https://addons.mozilla.org/firefox/downloads/file/75274/karma_blocker-0.4.2-fx.xpi?src=dp-hc-othersby"
+  >
+      <b></b>
+    <span>
+      Download Now
+          </span>
+  </a>
+      </p>
+</div> 
+
+      <div class="d2c-reasons-popup popup">
+      <p>This add-on is not compatible with your version of Firefox because of the following:</p>
+      <ul></ul>
+    </div>
+  
+</div> </div>
+    <span class="addon-summary">
+      Block resources based on their karma.
+    </span>
+    <div class="byline">
+      by <a href="/en-US/firefox/user/arantius/" title="Anthony Lieuallen">Anthony Lieuallen</a>    </div>
+          <div class="vitals">
+          <div class="vital">
+                  <span class="adu">
+                    11,994 users        </span>
+            </div>
+
+      </div>
+      </div>
+</div>
+    </li>
+    </section>
+</ul>
+      </section>
+      </section>
+
+ ÚR7ƒÂ›      UË_çUË_ç;wã¡       A:https://addons.mozilla.org/en-US/firefox/addon/greasemonkey/more security-info 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 request-method GET request-X-Requested-With XMLHttpRequest request-User-Agent Mozilla/5.0 (Windows NT 6.3; WOW64; rv:39.0) Gecko/20100101 Firefox/39.0 response-head HTTP/1.1 200 OK
+Server: nginx
+Date: Wed, 12 Aug 2015 15:01:44 GMT
+Content-Type: text/html; charset=utf-8
+Vary: X-Requested-With, X-Mobile, User-Agent
+X-Frame-Options: DENY
+Strict-Transport-Security: max-age=31536000
+X-Backend-Server: web12
+ uncompressed-len 0   “%

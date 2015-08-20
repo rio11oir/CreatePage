@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+            <title>Greasemonkey :: Add-ons for Firefox</title>
+
+    <link rel="shortcut icon" type="image/x-icon"
+          href="https://addons.cdn.mozilla.net/static/img/favicon.ico">
+
+    
+        <link title="Firefox Add-ons"
+          rel="search" type="application/opensearchdescription+xml"
+          href="/en-US/firefox/opensearch.xml" />
+
+          <link href="https://addons.cdn.mozilla.net/static/css/tabzilla/tabzilla.css" %}" rel="stylesheet" />
+              <link rel="stylesheet" media="all" href="https://addons.cdn.mozilla.net/static/css/zamboni/impala-min.css?build=f650c00" />
+      <!--[if lt IE 9]>
+        <script src="https://addons.cdn.mozilla.net/static/js/lib/iepp.min.js?b=0eeccd0-55c8bad9"></script>
+      <![endif]-->
+      <!--[if lte IE 9]>
+        <link rel="stylesheet" href="https://addons.cdn.mozilla.net/static/css/legacy/ie9.css?b=0eeccd0-55c8bad9">
+      <![endif]-->
+    
+            <link rel="prefetch" href="https://addons.cdn.mozilla.net/user-media/previews/full/9/9463.png?modified=1331247702">
+      <link rel="prefetch" href="https://addons.cdn.mozilla.net/user-media/previews/full/67/67770.png?modified=1329493792">
+    <meta property="og:title" content="Greasemonkey">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://addons.cdn.mozilla.net/user-media/addon_icons/0/748-64.png?modified=1402930904">
+  <meta property="og:url" content="https://addons.mozilla.org/en-US/firefox/addon/greasemonkey/">
+  <meta property="og:description" content="Customize the way a web page displays or behaves, by using small bits of JavaScript.">
+    <noscript><link rel="stylesheet" href="https://addons.cdn.mozilla.net/static/css/impala/nojs.css?b=0eeccd0-55c8bad9"></noscript>
+
+    
+    
+    <script src="https://cdn.optimizely.com/js/2006260574.js"></script>
+    <script src="https://addons.cdn.mozilla.net/static/js/preload-min.js?build=0eeccd0-55c8bad9"></script>
+  </head>
+  <body class="html-ltr firefox moz-header-slim gutter addon-details  is-impala"
+        data-app="firefox"
+        data-appname="Firefox"
+        data-appid="1"
+        data-min-beta-version="3.7"
+        data-nightly-version="39.0"
+        data-anonymous="true"
+        data-readonly="false"
+        data-media-url="https://addons.cdn.mozilla.net/user-media/"
+        data-static-url="https://addons.cdn.mozilla.net/static/"
+        data-collect-timings="/services/timing/record:0.1"
+        >
+
+    <div id="main-wrapper">
+      <div id="page" class="c">
+                  <div id="tabzilla">
+    <a href="https://www.mozilla.org/">Mozilla</a>
+</div>          <div class="amo-header">
+            <nav id="aux-nav" role="navigation" class="menu-nav c">
+  <ul>
+            <li class="account anonymous nomenu login legacy">
+            <a href="/en-US/firefox/users/register">Register</a> or <a href="/en-US/firefox/users/login?to=%2Fen-US%2Ffirefox%2Faddon%2Fgreasemonkey%2F">Log in</a>      </li>
+
+              <li>
+        <a href="#" id="other-apps" title="Find add-ons for other applications">Other Applications</a>
+        <ul class="other-apps">
+                                                          <li id="app-thunderbird" class="thunderbird">
+                <a href="/en-US/thunderbird">Thunderbird</a>
+              </li>
+                                                <li id="app-android" class="android">
+                <a href="/en-US/android">Firefox for Android</a>
+              </li>
+                                                                      <li id="app-seamonkey" class="seamonkey">
+                <a href="/en-US/seamonkey">SeaMonkey</a>
+              </li>
+                              </ul>
+      </li>
+      </ul>
+</nav>            <div class="header-search" role="search">
+                                                                  <form id="search" action="/en-US/firefox/search/">
+  <input id="search-q" type="text" name="q" autocomplete="off" title=""
+         class="text placeholder"
+         placeholder="search for add-ons"
+         value="">
+        <input id="id_appver" name="appver" type="hidden" />
+    <input id="id_platform" name="platform" type="hidden" />
+    <button class="search-button" type="submit" title="Search"
+         src="https://addons.cdn.mozilla.net/static/img/zamboni/global/btn-search.png?b=0eeccd0-55c8bad9"></button>
+      <div id="site-search-suggestions"
+         data-cat="all"
+         data-src="/en-US/firefox/search/suggestions"></div>
+  </form>                                          </div>
+            <div id="masthead">
+                            <h1 class="site-title">
+  <a href="/en-US/firefox/" title="Return to the Firefox Add-ons homepage">
+  <img alt="Firefox" src="https://addons.cdn.mozilla.net/static/img/app-icons/med/firefox.png?b=0eeccd0-55c8bad9">
+  Add-ons
+</a>
+</h1>              
+
+<nav id="site-nav" class="menu-nav c">
+  <ul>
+      <li id="extensions">
+    <a href="/en-US/firefox/extensions/">Extensions</a>
+    <ul class="two-col">
+              <li><em><a href="/en-US/firefox/extensions/?sort=featured">Featured</a></em></li>
+              <li><em><a href="/en-US/firefox/extensions/?sort=users">Most Popular</a></em></li>
+              <li><em><a href="/en-US/firefox/extensions/?sort=rating">Top Rated</a></em></li>
+                  <li><a href="/en-US/firefox/extensions/alerts-updates/">Alerts &amp; Updates</a></li>
+            <li><a href="/en-US/firefox/extensions/appearance/">Appearance</a></li>
+            <li><a href="/en-US/firefox/extensions/bookmarks/">Bookmarks</a></li>
+            <li><a href="/en-US/firefox/extensions/download-management/">Download Management</a></li>
+            <li><a href="/en-US/firefox/extensions/feeds-news-blogging/">Feeds, News &amp; Blogging</a></li>
+            <li><a href="/en-US/firefox/extensions/games-entertainment/">Games &amp; Entertainment</a></li>
+            <li><a href="/en-US/firefox/extensions/language-support/">Language Support</a></li>
+            <li><a href="/en-US/firefox/extensions/photos-music-videos/">Photos, Music &amp; Videos</a></li>
+            <li><a href="/en-US/firefox/extensions/privacy-security/">Privacy &amp; Security</a></li>
+            <li><a href="/en-US/firefox/extensions/search-tools/">Search Tools</a></li>
+            <li><a href="/en-US/firefox/extensions/shopping/">Shopping</a></li>
+            <li><a href="/en-US/firefox/extensions/social-communication/">Social &amp; Communication</a></li>
+            <li><a href="/en-US/firefox/extensions/tabs/">Tabs</a></li>
+            <li><a href="/en-US/firefox/extensions/web-development/">Web Development</a></li>
+            <li><a href="/en-US/firefox/extensions/other/">Other</a></li>
+          </ul>
+  </li>
+
+    
+        <li id="themes">
+      <a href="/en-US/firefox/themes/">Themes</a>
+              <ul class="two-col">
+                      <li><em><a href="/en-US/firefox/themes/?sort=popular">Most Popular</a></em></li>
+                      <li><em><a href="/en-US/firefox/themes/?sort=rating">Top Rated</a></em></li>
+                      <li><em><a href="/en-US/firefox/themes/?sort=created">Newest</a></em></li>
+                                <li><a href="/en-US/firefox/themes/abstract">Abstract</a></li>
+                      <li><a href="/en-US/firefox/themes/causes">Causes</a></li>
+                      <li><a href="/en-US/firefox/themes/fashion">Fashion</a></li>
+                      <li><a href="/en-US/firefox/themes/film-and-tv">Film and TV</a></li>
+                      <li><a href="/en-US/firefox/themes/firefox">Firefox</a></li>
+                      <li><a href="/en-US/firefox/themes/foxkeh">Foxkeh</a></li>
+                      <li><a href="/en-US/firefox/themes/holiday">Holiday</a></li>
+                      <li><a href="/en-US/firefox/themes/music">Music</a></li>
+                      <li><a href="/en-US/firefox/themes/nature">Nature</a></li>
+                      <li><a href="/en-US/firefox/themes/other">Other</a></li>
+                      <li><a href="/en-US/firefox/themes/scenery">Scenery</a></li>
+                      <li><a href="/en-US/firefox/themes/seasonal">Seasonal</a></li>
+                      <li><a href="/en-US/firefox/themes/solid">Solid</a></li>
+                      <li><a href="/en-US/firefox/themes/sports">Sports</a></li>
+                      <li><a href="/en-US/firefox/themes/websites">Websites</a></li>
+                  </ul>
+        <div>
+          <a class="complete-themes" href="/en-US/firefox/complete-themes/">
+            Want more customization? Try <b>Complete Themes</b>          </a>
+        </div>
+          </li>
+
+        <li id="collections">
+            <a href="/en-US/firefox/collections/">Collections</a>
+      <ul>
+                  <li><em><a href="/en-US/firefox/collections/?sort=featured">Featured</a></em></li>
+                  <li><em><a href="/en-US/firefox/collections/?sort=users">Most Followers</a></em></li>
+                  <li><em><a href="/en-US/firefox/collections/?sort=created">Newest</a></em></li>
+                <hr>
+        <li><a href="/en-US/firefox/collections/mine/">
+          Collections I've Made</a></li>
+        <li><a href="/en-US/firefox/collections/following/">
+          Collections I'm Following</a></li>
+                <li><a href="/en-US/firefox/collections/mine/favorites">
+          My Favorite Add-ons</a></li>
+      </ul>
+          </li>
+    <li id="more">
+      <a href="#">More&hellip;</a>
+      <ul>
+                  <li class="more-mobile"><a href="/en-US/android">
+            Add-ons for Mobile</a></li>
+                <li class="more-lang"><a href="/en-US/firefox/language-tools/">
+          Dictionaries & Language Packs</a></li>
+        <li><a href="/en-US/firefox/search-tools/">Search Tools</a></li>
+        <li><a href="/en-US/developers/">Developer Hub</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+                          </div>
+                                                      <div class="site-balloon" id="site-nonfx">
+                  <p>
+                    To try the thousands of add-ons available here, download <a href="http://mozilla.org/firefox/?src=amo">Mozilla Firefox</a>, a fast, free way to surf the Web!                  </p>
+                  <a href="#" class="close">Close</a>
+                </div>
+                            <div class="site-balloon" id="site-welcome">
+                                <h3>Welcome to Firefox Add-ons.</h3>
+                <p>
+                                      Choose from thousands of extra features and styles to make Firefox your own.                                  </p>
+                <a href="#" class="close">Close</a>
+              </div>
+              <div class="site-balloon" id="mobile-banner">
+                <h3>On the go?</h3>
+                <p>
+                  Check out our <a class="mobile-link" href="#">Mobile Add-ons site</a>.                </p>
+                <a href="#" class="close">Close</a>
+              </div>
+                      </div>
+        
+                                                                  <nav id="breadcrumbs">
+  <ol>
+      <li>
+                  <a href="/en-US/firefox/" class="home" title="Add-ons for Firefox">Add-ons for Firefox</a>
+              </li>
+      <li>
+                  <a href="/en-US/firefox/extensions/">Extensions</a>
+              </li>
+      <li>
+          <span>Greasemonkey</span>
+        </li>
+    </ol>
+</nav>
+
+<div itemscope itemtype="http://schema.org/WebApplication">
+  <link itemprop="SoftwareApplicationCategory" href="http://schema.org/OtherApplication" />
+  <aside class="secondary addon-vitals">
+
+    <span itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+    <meta itemprop="price" content="$0" />
+    <meta itemprop="priceCurrency" content="USD" />
+    <link itemprop="availability" href="http://schema.org/InStock" />
+  </span>
+
+  <div itemprop="aggregateRating" itemscope="" itemtype="http://schema.org/AggregateRating">
+    <meta content="4.2343" itemprop="ratingValue">
+      <span class="stars large stars-4" title="Rated 4 out of 5 stars">
+      Rated 4 out of 5 stars  </span>
+
+
+    <div>
+      <a id="reviews-link" href="/en-US/firefox/addon/greasemonkey/reviews/">
+      <span itemprop="ratingCount">956</span> user reviews      </a>
+    </div>
+  </div>
+
+                                  <div id="daily-users">
+              <a class="stats" title="View statistics"
+           href="/en-US/firefox/addon/greasemonkey/statistics/">1,186,504 users</a>
+            <meta itemprop="interactionCount" content="UserDownloads:72410716" />
+    </div>
+  
+  <div class="widgets">
+    
+    <a class="collection-add widget collection"
+  data-listurl="/en-US/firefox/collections/ajax/list"
+  data-addurl="/en-US/firefox/collections/ajax/add"
+  data-removeurl="/en-US/firefox/collections/ajax/remove"
+  data-newurl="/en-US/firefox/collections/ajax/new"
+  data-addonid="748"
+  title=""
+  href="#"
+  >
+  Add to collection
+</a>        <a class="share widget"
+     data-share-counts="{&#34;Tumblr&#34;: &#34;0 posts&#34;, &#34;twitter&#34;: &#34;796 tweets&#34;, &#34;Reddit&#34;: &#34;0 posts&#34;, &#34;facebook&#34;: &#34;12200 Likes&#34;, &#34;gplus&#34;: &#34;0 posts&#34;}"
+     data-base-url="/en-US/firefox/addon/greasemonkey/share?service="
+     title="Share this Add-on"
+     href="#">Share this Add-on</a>
+
+  </div>
+    </aside>
+
+
+<section class="primary">
+  <div id="addon" class="island c" role="main" data-id="748">
+    <hgroup>
+            <img id="addon-icon" itemprop="image" src="https://addons.cdn.mozilla.net/user-media/addon_icons/0/748-64.png?modified=1402930904" class="icon" alt="Icon of Greasemonkey">
+      <h1 class="addon">
+        <span itemprop="name">Greasemonkey</span>
+                  <span class="version-number" itemprop="version">3.3</span>
+                      </h1>
+      <h4 class="author">by <a href="/en-US/firefox/user/arantius/" title="Anthony Lieuallen">Anthony Lieuallen</a>, <a href="/en-US/firefox/user/aaron-boodman/" title="Aaron Boodman">Aaron Boodman</a>, <a href="/en-US/firefox/user/ecmanaut/" title="Johan Sundström">Johan Sundström</a></h4>
+    </hgroup>
+    <p id="addon-summary" itemprop="description" >Customize the way a web page displays or behaves, by using small bits of JavaScript.</p>
+          <div class="install-wrapper featuredaddon">
+<div class="install-shell">
+<div class="install featuredaddon"
+       data-addon="748"
+  data-icon="https://addons.cdn.mozilla.net/user-media/addon_icons/0/748-32.png?modified=1402930904"
+  data-developers="/en-US/firefox/addon/greasemonkey/developers"
+  data-versions="/en-US/firefox/addon/748/versions/"
+  data-name="Greasemonkey"
+  
+  data-min="35.0"
+  data-max="40.*"
+  data-is-compatible="true"
+  data-is-compatible-app="true"
+  data-compat-overrides="[]"
+>
+  <p class="install-button">
+                            <a class="button  download prominent "
+  data-hash="sha256:1a8205b700d3aaf01b43b81504fee885cd0e3f7eafb994a0cc200ffcfdbb2896"
+      href="/firefox/downloads/latest/748/addon-748-latest.xpi?src=dp-btn-primary"
+  >
+      <b></b>
+    <span>
+      Download Now
+          </span>
+  </a>
+      </p>
+</div> 
+      <a class="privacy-policy badge" href="/en-US/firefox/addon/greasemonkey/privacy/">
+      Privacy Policy
+    </a>
+    
+  
+      <div class="d2c-reasons-popup popup">
+      <p>This add-on is not compatible with your version of Firefox because of the following:</p>
+      <ul></ul>
+    </div>
+  
+</div> </div><div class="backup-button hidden install-wrapper featuredaddon">
+<div class="install-shell">
+<div class="install featuredaddon"
+       data-addon="748"
+  data-icon="https://addons.cdn.mozilla.net/user-media/addon_icons/0/748-32.png?modified=1402930904"
+  data-developers="/en-US/firefox/addon/greasemonkey/developers"
+  data-versions="/en-US/firefox/addon/748/versions/"
+  data-name="Greasemonkey"
+  
+  data-min="3.6"
+  data-max="14.*"
+  data-is-compatible="true"
+  data-is-compatible-app="true"
+  data-compat-overrides="[]"
+>
+  <p class="install-button">
+                            <a class="button  download prominent "
+  data-hash="sha256:db0bb6ec7a4d3cd2d798d9a81c01b4eef7910821d19fe0919518fd8e41b39b37"
+      href="https://addons.mozilla.org/firefox/downloads/file/161685/greasemonkey-0.9.22-fx.xpi?src=dp-btn-primary"
+  >
+      <b></b>
+    <span>
+      Download Now
+          </span>
+  </a>
+      </p>
+</div> 
+      <a class="privacy-policy badge" href="/en-US/firefox/addon/greasemonkey/privacy/">
+      Privacy Policy
+    </a>
+    
+  
+      <div class="d2c-reasons-popup popup">
+      <p>This add-on is not compatible with your version of Firefox because of the following:</p>
+      <ul></ul>
+    </div>
+  
+</div> </div>
+              <div class="banner-box">
+        <div class="banner featured">Featured</div>
+      </div>
+      </div>
+
+  
+  
+
+  </section>
+
+      <section class="previews">
+      <div class="carousel">
+        <a href="#" class="control prev">&laquo;</a>
+        <a href="#" class="control next">&raquo;</a>
+        <ul id="preview" class="slider"><li class="panel">
+              <a class="screenshot thumbnail" rel="jquery-lightbox"
+                 href="https://addons.cdn.mozilla.net/user-media/previews/full/9/9463.png?modified=1331247702" title="Installation dialog.">
+                                <img src="https://addons.cdn.mozilla.net/user-media/previews/thumbs/9/9463.png?modified=1331247702" alt="Add-on screenshot #1">
+              </a>
+            </li><li class="panel">
+              <a class="screenshot thumbnail" rel="jquery-lightbox"
+                 href="https://addons.cdn.mozilla.net/user-media/previews/full/67/67770.png?modified=1329493792" title="Script management is integrated with the Firefox Add-Ons Manager dialog.">
+                                <img src="https://addons.cdn.mozilla.net/user-media/previews/thumbs/67/67770.png?modified=1329493792" alt="Add-on screenshot #2">
+              </a>
+            </li></ul>
+      </div>
+    </section>
+    <div id="lightbox">
+      <section>
+        <div class="content">
+          <a class="close" href="#">Close</a>
+        </div>
+        <div class="controls">
+          <a href="#" class="control next">&raquo;</a>
+          <a href="#" class="control prev">&laquo;</a>
+          <div class="caption"><span></span></div>
+        </div>
+      </section>
+    </div>
+  
+<aside class="secondary metadata c">
+  <ul class="links">
+          <li><a class="home" href="http://outgoing.mozilla.org/v1/74817386eba6524dc0a8a140a3e0156a4f6db8efbc9ff88e6ee61e82b067f63d/http%3A//www.greasespot.net/">
+        Add-on home page</a></li>
+              <li><a class="support" href="http://outgoing.mozilla.org/v1/77fec95a9e938b0d856208d4ec342d8592007c35b6f36cee3e0fa4cc56d196f3/http%3A//greasespot.net/">Support site</a></li>
+          </ul>
+      <ul>
+      <li>Version 3.3 <a class="scrollto" href="#detail-relnotes">Info</a></li>
+      <li>July 24, 2015</li>
+      <li class="source-license">
+                                      Released under <a target="_blank" href="http://www.opensource.org/licenses/mit-license.php">MIT/X11 License</a>                        </li>
+    </ul>
+  </aside>
+
+<section class="primary island c">
+  <h2>About this Add-on</h2>
+  <div class="prose">
+      <div id="addon-description" class="prose" >Allows you to customize the way a web page displays or behaves, by using small bits of JavaScript. <br><br>You can write your own scripts, too. Check out <a rel="nofollow" href="http://outgoing.mozilla.org/v1/9ed2e4ef6ea71ebb0a2117c50d7ad169cb0fbbaa54b5892d4da5aa5b0f9741b5/http%3A//wiki.greasespot.net/">http://wiki.greasespot.net/</a> to get started.  Many scripts already exist, probably ones to enhance your favorite sites.  Find them at <a rel="nofollow" href="http://outgoing.mozilla.org/v1/34fc12f2918302eb44d058f6e2a4d1652c8f6b4183c865a117014dcd6b71b92f/http%3A//wiki.greasespot.net/User_Script_Hosting">http://wiki.greasespot.net/User_Script_Hosting</a> .<br><br><br>Having trouble?  Please don't post comments here, nobody will see them.  If you need help, please read:<br><a rel="nofollow" href="http://outgoing.mozilla.org/v1/2ebd0ef7f67f2473fc93a5ecad7728746faf86d85ee6eedde0f61a348b11cd01/http%3A//wiki.greasespot.net/Greasemonkey_Manual%3AGetting_Help">http://wiki.greasespot.net/Greasemonkey_Manual:Getting_Help</a></div>
+    </div>
+</section>
+
+<div id="more-webpage" class="primary c" data-more-url="/en-US/firefox/addon/greasemonkey/more"></div>
+
+<section class="primary island more-island">
+  
+      <section id="detail-relnotes" class="expando">
+      <h2>Version Information<a class="toggle" href="#detail-relnotes"><b></b></a></h2>
+      <div class="content listing">
+        <div class="items">
+          <div class="version item" id="version-3.3">
+  <div class="info">
+    <h3><a href="/en-US/firefox/addon/greasemonkey/versions/3.3"
+           title="Permanent link to this version">
+      Version 3.3</a>
+      <span class="meta">
+        <time datetime="2015-07-24T13:46:59Z">
+                    Released July 24, 2015
+        </time>
+                  <span class="filesize">
+            330.3 kB
+          </span>
+              </span>
+              <span class="meta compat">
+                    Works with
+                      Firefox 35.0 and later        </span>
+          </h3>
+
+    <div class="desc prose" >
+      Feature enhancements:<br><ul><li>Allow the script preference window flex size, especially useful for smaller displays. (<a href="http://outgoing.mozilla.org/v1/bfc9f63bc7091d7825538514333e6274cdeaf76fdf8248a05cd8b9bee4b76a59/https%3A//github.com/greasemonkey/greasemonkey/issues/2191" rel="nofollow">#2191</a>) &lt;br&gt;</li><li>The script preference editor now allows editing @match (as well as @include and @exclude like always). (<a href="http://outgoing.mozilla.org/v1/be3522fd6eea9869474c3d6702b62c77115fc160d22d51cf1fcc158a72b982ad/https%3A//github.com/greasemonkey/greasemonkey/pull/2126" rel="nofollow">#2126</a>)&lt;br&gt;</li><li>GM_getResourceURL is now compatible with favicons. (<a href="http://outgoing.mozilla.org/v1/214ad0ec3dcc977c396674d5e64d474645ad40c6088db30cdeb6f3db8480e0b1/https%3A//github.com/greasemonkey/greasemonkey/issues/1955" rel="nofollow">#1955</a>)&lt;br&gt;</li><li>Web sites should not be able to detect that Greasemonkey is installed. (<a href="http://outgoing.mozilla.org/v1/00adc81e47ff6f1af8d75e180ef4cd5937d0085ee7a7ea4884d661a88e07b434/https%3A//github.com/greasemonkey/greasemonkey/issues/1787" rel="nofollow">#1787</a>)</li></ul><br>Fixed bugs:<br><ul><li>Web pages whose URLs end with .user.js should load properly. (<a href="http://outgoing.mozilla.org/v1/de1cfe01b843eb6dfd36ca42bbecae095b78e42be72e70af21dad492014852ba/https%3A//github.com/greasemonkey/greasemonkey/issues/2178" rel="nofollow">#2178</a>)</li><li>Repair memory leak related to GM_registerMenuCommand(). (<a href="http://outgoing.mozilla.org/v1/a108a998e28d288cf37d7b502065b43edf90d0d67756deaca93b68a83cfce1f9/https%3A//github.com/greasemonkey/greasemonkey/issues/2067" rel="nofollow">#2067</a>)</li></ul>
+    </div>
+
+    <ul class="source">
+                  <li>
+                      Source code released under <a target="_blank" href="http://www.opensource.org/licenses/mit-license.php">MIT/X11 License</a>                  </li>
+        <li>
+          <a class="license-faq" href="/en-US/faq#license">
+            What's this?</a>
+        </li>
+              <li>
+        <a class="source-code"
+           href="/en-US/firefox/files/browse/331462/">
+          View the source</a>
+      </li>
+        </ul>
+
+  </div>
+  <div class="action">
+    
+<div class="install-shell">
+<div class="install featuredaddon"
+       data-addon="748"
+  data-icon="https://addons.cdn.mozilla.net/user-media/addon_icons/0/748-32.png?modified=1402930904"
+  data-developers="/en-US/firefox/addon/greasemonkey/developers"
+  data-versions="/en-US/firefox/addon/748/versions/"
+  data-name="Greasemonkey"
+  
+  data-min="35.0"
+  data-max="40.*"
+  data-is-compatible="true"
+  data-is-compatible-app="true"
+  data-compat-overrides="[]"
+>
+  <p class="install-button">
+                            <a class="button  download "
+  data-hash="sha256:1a8205b700d3aaf01b43b81504fee885cd0e3f7eafb994a0cc200ffcfdbb2896"
+      href="https://addons.mozilla.org/firefox/downloads/file/331462/greasemonkey-3.3-fx.xpi?src=dp-btn-version"
+  >
+      <b></b>
+    <span>
+      Download Now
+          </span>
+  </a>
+      </p>
+</div> 
+
+      <div class="d2c-reasons-popup popup">
+      <p>This add-on is not compatible with your version of Firefox because of the following:</p>
+      <ul></ul>
+    </div>
+  
+</div> 
+  </div>
+</div>
+        </div>
+        <p class="more c">
+          <a class="more-info" href="/en-US/firefox/addon/greasemonkey/versions/">
+            See complete version history
+          </a>
+        </p>
+      </div>
+    </section>
+  
+      <section id="beta-channel" class="expando">
+      <h2>Development Channel<a class="toggle" href="#beta-channel"><b></b></a></h2>
+      <div class="content">
+        <p>
+          The Development Channel lets you test an experimental new version of this add-on before it's released to the general public. Once you install the development version, you will continue to get updates from this channel. To stop receiving development updates, reinstall the default version from the link above.          <a href="#install-beta">Install development version</a>
+        </p>
+        <div class="install-beta" id="install-beta">
+          <p>
+            <strong>Caution:</strong> Development versions of this add-on have not been reviewed by Mozilla and can't be installed on release versions of Firefox.          </p>
+          <dl>
+            <dt class="beta-version">Version 3.4beta1:</dt>
+            <dd>
+<div class="install-shell">
+<div class="install unreviewed beta"
+       data-addon="748"
+  data-icon="https://addons.cdn.mozilla.net/user-media/addon_icons/0/748-32.png?modified=1402930904"
+  data-developers="/en-US/firefox/addon/greasemonkey/developers"
+  data-versions="/en-US/firefox/addon/748/versions/"
+  data-name="Greasemonkey"
+  
+  data-min="35.0"
+  data-max="40.*"
+  data-is-compatible="true"
+  data-is-compatible-app="true"
+  data-compat-overrides="[]"
+>
+  <p class="install-button">
+                            <a class="button  download caution "
+  data-hash="sha256:ca3cc4b2fee4a898a7a13b9e511970c5021aa9c5b4d33921523cae094870c583"
+      href="https://addons.mozilla.org/firefox/downloads/file/333364/greasemonkey-3.4beta1-fx.xpi?src=dp-btn-devchannel"
+  >
+      <b></b>
+    <span>
+      Download Now
+          </span>
+  </a>
+      </p>
+</div> 
+
+      <div class="d2c-reasons-popup popup">
+      <p>This add-on is not compatible with your version of Firefox because of the following:</p>
+      <ul></ul>
+    </div>
+  
+</div> 
+<div class="backup-button hidden install-wrapper">
+<div class="install-shell">
+<div class="install featuredaddon"
+       data-addon="748"
+  data-icon="https://addons.cdn.mozilla.net/user-media/addon_icons/0/748-32.png?modified=1402930904"
+  data-developers="/en-US/firefox/addon/greasemonkey/developers"
+  data-versions="/en-US/firefox/addon/748/versions/"
+  data-name="Greasemonkey"
+  
+  data-min="3.6"
+  data-max="14.*"
+  data-is-compatible="true"
+  data-is-compatible-app="true"
+  data-compat-overrides="[]"
+>
+  <p class="install-button">
+                            <a class="button  download "
+  data-hash="sha256:db0bb6ec7a4d3cd2d798d9a81c01b4eef7910821d19fe0919518fd8e41b39b37"
+      href="https://addons.mozilla.org/firefox/downloads/file/161685/greasemonkey-0.9.22-fx.xpi?src=dp-btn-devchannel"
+  >
+      <b></b>
+    <span>
+      Download Now
+          </span>
+  </a>
+      </p>
+</div> 
+
+      <div class="d2c-reasons-popup popup">
+      <p>This add-on is not compatible with your version of Firefox because of the following:</p>
+      <ul></ul>
+    </div>
+  
+</div> </div></dd>
+          </dl>
+        </div>
+      </div>
+    </section>
+  </section>
+
+
+</div>
+              </div>
+      <div id="tooltip">
+        <span></span>
+      </div>
+      <div id="popup-staging">
+        <div id="sharing-popup" class="popup">
+  <div class="share-networks share-content">
+    <ul>
+              <li class="facebook">
+          <span class="share-link">
+            <a class="uniquify" target="_self">
+              Post to Facebook
+            </a>
+          </span>
+          <span class="share-count">
+          </span>
+        </li>
+              <li class="twitter">
+          <span class="share-link">
+            <a class="uniquify" target="_self">
+              Tweet on Twitter
+            </a>
+          </span>
+          <span class="share-count">
+          </span>
+        </li>
+              <li class="gplus">
+          <span class="share-link">
+            <a class="uniquify" target="_self">
+              Share on g+
+            </a>
+          </span>
+          <span class="share-count">
+          </span>
+        </li>
+              <li class="Reddit">
+          <span class="share-link">
+            <a class="uniquify" target="_self">
+              Post to Reddit
+            </a>
+          </span>
+          <span class="share-count">
+          </span>
+        </li>
+              <li class="Tumblr">
+          <span class="share-link">
+            <a class="uniquify" target="_self">
+              Post to Tumblr
+            </a>
+          </span>
+          <span class="share-count">
+          </span>
+        </li>
+          </ul>
+  </div></div>
+        <div id="add-to-collection" class="popup">
+          <div class="collection-add-login">
+            <p>To create your own collections, you must have a Mozilla Add-ons account.</p>
+            <p class="register-button">
+              <a class="button" href="/en-US/firefox/users/register">Create an Add-ons Account</a>
+            </p>
+            <p>
+              or <a href="/en-US/firefox/users/login?to=%2Fen-US%2Ffirefox%2Faddon%2Fgreasemonkey%2F">log in to your current account</a>            </p>
+          </div>
+        </div>
+              <div class="modal" id="privacy-policy">
+      <a href="#" class="close">close</a>
+      <h2>Privacy Policy</h2>
+      <div class="prose">
+        <b>Privacy Policy</b><br><br>This Privacy Policy governs the manner in which Greasemonkey collects, uses,<br> maintains and discloses information collected from users (each, a <br>"User") of the Greasemonkey Application. This privacy policy applies to <br>the Application and all products and services offered by Greasemonkey.<br><br><b>Personal identification information</b><br><br>We do not collect personal identification information from Users.<br><br><b>Non-personal identification information</b><br><br>We may collect non-personal identification information about Users <br>whenever they interact with our Application. Non-personal identification<br> information may include the list and/or number of installed scripts, <br>the source they were obtained from, metrics describing usage of the <br>Application and User behavior and Telemetry, and other similar <br>information.<br><br><b>How we use collected information</b><br><br>Greasemonkey may collect and use Users personal information for the following purposes:<br><br><ul><li>To improve our ApplicationWe may use feedback you provide to improve our products and services.</li><li>UpdatesWe may use stored information in order to check for and/or install updates.</li><li>SynchronizationWe may share collected information for the purpose of synchronization across devices, via the standard Firefox Sync feature.</li></ul><br><b>How we protect your information</b><br><br>We adopt appropriate data collection, storage and processing practices and<br> security measures to protect against unauthorized access, alteration, <br>disclosure or destruction of your personal information and data stored <br>on our Site.<br><br>Sensitive and private data exchange between the Application and its Site happens <br>over a SSL secured communication channel and is encrypted and protected <br>with digital signatures.<br><br><b>Sharing your personal information</b><br><br>We do not sell, trade, or rent Users personal information to others. We <br>may share generic aggregated demographic information not linked to any <br>personal information regarding visitors and users with our business <br>partners, trusted affiliates and advertisers for the purposes outlined <br>above. We may publish aggregated statistics based on this information <br>online.<br><br><b>Changes to this privacy policy</b><br><br>Greasemonkey has the discretion to update this privacy policy at any time. When we <br>do, we will post a notification on the main page of our Site, and revise<br> the updated date at the bottom of this page. We encourage Users to <br>frequently check this page for any changes to stay informed about how we<br> are helping to protect the personal information we collect. You <br>acknowledge and agree that it is your responsibility to review this <br>privacy policy periodically and become aware of modifications.<br><br><b>Your acceptance of these terms</b><br><br>By using this Application, you signify your acceptance of this policy. If <br>you do not agree to this policy, please do not use our Application. Your<br> continued use of the Application following the posting of changes to <br>this policy will be deemed your acceptance of those changes.<br><br><b>Contacting us</b><br><br>If you have any questions about this Privacy Policy, the practices of this<br> site, or your dealings with this site, please contact us at:<br><br>Greasemonkey<br><a href="http://outgoing.mozilla.org/v1/74817386eba6524dc0a8a140a3e0156a4f6db8efbc9ff88e6ee61e82b067f63d/http%3A//www.greasespot.net/" rel="nofollow">http://www.greasespot.net/</a><br><br>This document was last updated on November 7, 2012.
+      </div>
+    </div>
+            <div id="abuse-modal" class="modal">
+      <a href="#" class="close">close</a>
+      <h2>Report Abuse</h2>
+      <form method="post" action="/en-US/firefox/addon/greasemonkey/abuse/">
+  
+  <fieldset class="abuse">
+        <ol >
+      <li>
+        <p>If you suspect this add-on violates <a href="/en-US/firefox/developers/docs/policies">our policies</a> or has security or privacy issues, please use the form below to describe your concerns. Please do not use this form for any other reason.</p>
+      </li>
+      <li>
+        <textarea cols="40" id="id_text" name="text" rows="10">
+</textarea>
+        
+      </li>
+              <li id="recap-container">
+<label for="recaptcha_response_field">
+  Are you human? <span class="req" title="required">*</span>
+  <a href="#" id="recaptcha_help">What's this?</a>
+</label>
+<div class="recaptcha-container">
+  <p> Please enter <strong>all the words</strong> below, <strong>separated by a space if necessary</strong>. </p> <p> If this is hard to read, you can <a href="#" id="recaptcha_different">try different words</a> or <a href="#" id="recaptcha_audio">try a different type of challenge</a> instead. </p>  <div id="recaptcha_image"></div>
+  <p>
+    <input type="text" name="recaptcha_response_field"
+           id="recaptcha_response_field" size="30">
+  </p>
+</div>
+</li>
+
+            <li class="footer-submit">
+        <button type="submit">Send Report</button>
+              </li>
+    </ol>
+  </fieldset>
+</form>
+    </div>
+        </div>
+    </div>
+          <div id="footer" role="contentinfo">
+        <div class="section">
+                      <img class="footerlogo" src="https://addons.cdn.mozilla.net/static/img/zamboni/footer-logo-med.png?b=0eeccd0-55c8bad9" alt="">
+                                <div id="social-footer">
+  <ul>
+    <li>get to know <b>add-ons</b></li>
+    <li><a href="/en-US/about">About</a></li>
+    <li><a href="http://blog.mozilla.com/addons">Blog</a></li>
+    <li class="footer-devhub-link"><a href="/en-US/developers/">Developer Hub</a></li>
+    <li><a href="/en-US/faq">FAQ</a></li>
+    <li><a href="https://discourse.mozilla-community.org/c/add-ons">Forum</a></li>
+  </ul>
+</div>
+<div id="footer-content">
+        <form class="languages go" id="lang_form" method="get" action="">
+      <label for="language">Other languages</label>
+      <select id="language" name="lang" dir="ltr">
+        <option value="af" >
+            Afrikaans
+          </option><option value="ar" >
+            عربي
+          </option><option value="bg" >
+            Български
+          </option><option value="bn-bd" >
+            বাংলা (বাংলাদেশ)
+          </option><option value="ca" >
+            Català
+          </option><option value="cs" >
+            Čeština
+          </option><option value="da" >
+            Dansk
+          </option><option value="de" >
+            Deutsch
+          </option><option value="el" >
+            Ελληνικά
+          </option><option value="en-us" selected>
+            English (US)
+          </option><option value="es" >
+            Español
+          </option><option value="eu" >
+            Euskara
+          </option><option value="fa" >
+            فارسی
+          </option><option value="fi" >
+            suomi
+          </option><option value="fr" >
+            Français
+          </option><option value="ga-ie" >
+            Gaeilge
+          </option><option value="he" >
+            עברית
+          </option><option value="hu" >
+            magyar
+          </option><option value="id" >
+            Bahasa Indonesia
+          </option><option value="it" >
+            Italiano
+          </option><option value="ja" >
+            日本語
+          </option><option value="ko" >
+            한국어
+          </option><option value="mk" >
+            Македонски
+          </option><option value="mn" >
+            Монгол
+          </option><option value="nl" >
+            Nederlands
+          </option><option value="pl" >
+            Polski
+          </option><option value="pt-br" >
+            Português (do Brasil)
+          </option><option value="pt-pt" >
+            Português (Europeu)
+          </option><option value="ro" >
+            română
+          </option><option value="ru" >
+            Русский
+          </option><option value="sk" >
+            slovenčina
+          </option><option value="sl" >
+            Slovenščina
+          </option><option value="sq" >
+            Shqip
+          </option><option value="sv-se" >
+            Svenska
+          </option><option value="uk" >
+            Українська
+          </option><option value="vi" >
+            Tiếng Việt
+          </option><option value="zh-cn" >
+            中文 (简体)
+          </option><option value="zh-tw" >
+            正體中文 (繁體)
+          </option>      </select>
+            <noscript><button type="submit">Go</button></noscript>
+    </form>
+    <div id="copyright">
+  <p id="footer-links">
+          <a href="http://www.mozilla.org/privacy/websites/">
+        Privacy Policy
+      </a> &nbsp;|&nbsp;
+      <a href="http://www.mozilla.org/about/legal.html">
+        Legal Notices
+      </a> &nbsp;|&nbsp;
+      <a href="http://www.mozilla.org/legal/fraud-report/index.html">
+        Report Trademark Abuse
+      </a>
+            &nbsp;|&nbsp;<a class="mobile-link" href="#">View Mobile Site</a>
+        </p>
+  <p>
+    Except where otherwise <a href="http://www.mozilla.org/about/legal.html#site">noted</a>, content on this site is licensed under the <br /> <a href="http://creativecommons.org/licenses/by-sa/3.0/"> Creative Commons Attribution Share-Alike License v3.0 </a> or any later version.  </p>
+</div></div>
+                  </div>       </div>                   <script src="/en-US/firefox/jsi18n.js?b=0eeccd0-55c8bad9"></script>
+            <script src="https://addons.cdn.mozilla.net/static/js/impala-min.js?build=0eeccd0-55c8bad9"></script>
+      <script async defer src="/en-US/firefox/addons/buttons.js?b=0eeccd0-55c8bad9"></script>
+          <script type="text/javascript" src="https://www.google.com/recaptcha/api/challenge?k=6LcHh9gSAAAAAJ_BAPRKKBdXUZwgERi7iwQVjIna"></script>
+    <script async defer src="https://www.paypalobjects.com/js/external/dg.js"></script>
+      </body>
+</html>�C$m��      U�_�U�_�;w�       =:https://addons.mozilla.org/en-US/firefox/addon/greasemonkey/ necko:classified 1 security-info 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 request-method GET request-User-Agent Mozilla/5.0 (Windows NT 6.3; WOW64; rv:39.0) Gecko/20100101 Firefox/39.0 response-head HTTP/1.1 200 OK
+Server: nginx
+Date: Wed, 12 Aug 2015 15:01:43 GMT
+Content-Type: text/html; charset=utf-8
+Vary: X-Requested-With, X-Mobile, User-Agent
+X-Frame-Options: DENY
+Strict-Transport-Security: max-age=31536000
+X-Backend-Server: web9
+ charset UTF-8 uncompressed-len 0 predictor::https://addons.cdn.mozilla.net/static/css/tabzilla/tabzilla.css 1,2,1439391718,0 predictor::https://addons.cdn.mozilla.net/static/css/zamboni/impala-min.css?build=f650c00 1,2,1439391718,0 predictor::https://cdn.optimizely.com/js/2006260574.js 1,2,1439391718,0 predictor::https://addons.cdn.mozilla.net/static/js/preload-min.js?build=0eeccd0-55c8bad9 1,2,1439391718,0 predictor::https://addons.cdn.mozilla.net/static/img/app-icons/med/firefox.png?b=0eeccd0-55c8bad9 1,2,1439391718,0 predictor::https://addons.cdn.mozilla.net/user-media/addon_icons/0/748-64.png?modified=1402930904 1,2,1439391718,0 predictor::https://addons.cdn.mozilla.net/user-media/previews/thumbs/9/9463.png?modified=1331247702 1,2,1439391718,0 predictor::https://addons.cdn.mozilla.net/user-media/previews/thumbs/67/67770.png?modified=1329493792 1,2,1439391718,0 predictor::https://addons.cdn.mozilla.net/static/img/zamboni/footer-logo-med.png?b=0eeccd0-55c8bad9 1,2,1439391718,0 predictor::https://addons.mozilla.org/en-US/firefox/jsi18n.js?b=0eeccd0-55c8bad9 1,2,1439391718,0 predictor::https://addons.cdn.mozilla.net/static/js/impala-min.js?build=0eeccd0-55c8bad9 1,2,1439391718,0 predictor::https://addons.mozilla.org/en-US/firefox/addons/buttons.js?b=0eeccd0-55c8bad9 1,2,1439391718,0 predictor::https://www.google.com/recaptcha/api/challenge?k=6LcHh9gSAAAAAJ_BAPRKKBdXUZwgERi7iwQVjIna 1,2,1439391718,0 predictor::https://www.paypalobjects.com/js/external/dg.js 1,2,1439391718,0 predictor::https://ssl.google-analytics.com/ga.js 1,2,1439391718,0 predictor::https://addons.cdn.mozilla.net/static/img/zamboni/global/bg-header.png?7afdbd6 1,2,1439391718,0 predictor::https://addons.cdn.mozilla.net/static/img/tabzilla/tabzilla-static.png 1,2,1439391718,0 predictor::https://addons.cdn.mozilla.net/static/img/icons/search.png?eaad389 1,2,1439391718,0 predictor::https://addons.cdn.mozilla.net/static/img/icons/go-arrow.png?ad8fa66 1,2,1439391718,0 predictor::https://addons.cdn.mozilla.net/static/img/impala/breadcrumb-home.png?f3b8d00 1,2,1439391718,0 predictor::https://addons.cdn.mozilla.net/static/img/impala/stars-16.png?c518520 1,2,1439391718,0 predictor::https://addons.cdn.mozilla.net/static/img/impala/stats.png?039585f 1,2,1439391718,0 predictor::https://addons.cdn.mozilla.net/static/img/impala/widgets.png?e4eb4a7 1,2,1439391718,0 predictor::https://addons.cdn.mozilla.net/static/img/impala/home.png?54712b2 1,2,1439391718,0 predictor::https://addons.cdn.mozilla.net/static/img/impala/loading-more.gif?4b3afb8 1,2,1439391718,0 predictor::https://addons.cdn.mozilla.net/static/img/impala/expando-large.png?4f1cc6f 1,2,1439391718,0 predictor::https://addons.cdn.mozilla.net/static/img/zamboni/global/bg-footer.png?75bd0b5 1,2,1439391718,0 predictor::https://addons.cdn.mozilla.net/static/css/impala/fonts/MetaWebPro-Black.woff?5a32e0b 1,2,1439391718,0 predictor::https://ssl.google-analytics.com/r/__utm.gif?utmwv=5.6.6&utms=1&utmn=2122359460&utmhn=addons.mozilla.org&utmcs=UTF-8&utmsr=1920x1080&utmvp=1409x653&utmsc=24-bit&utmul=en-gb&utmje=0&utmfl=-&utmdt=Greasemonkey%20%3A%3A%20Add-ons%20for%20Firefox&utmhid=1862687399&utmr=https%3A%2F%2Fwww.google.ca&utmp=%2Fen-US%2Ffirefox%2Faddon%2Fgreasemonkey%2F&utmht=1439391703692&utmac=UA-36116321-7&utmcc=__utma%3D164683759.1716834091.1439391554.1439391704.1439391704.1%3B%2B__utmz%3D164683759.1439391704.1.1.utmcsr%3Dgoogle%7Cutmccn%3D(organic)%7Cutmcmd%3Dorganic%7Cutmctr%3D(not%2520provided)%3B&utmjid=920383014&utmredir=1&utmu=qAAAAAAAAAAAAAAAAAABAAQE~ 1,1,1439391702,0 predictor::https://www.google.com/recaptcha/api/js/recaptcha.js 1,2,1439391718,0 predictor::https://addons.cdn.mozilla.net/static/img/impala/search-stem.png?11fc7d4 1,2,1439391718,0 predictor::https://www.google.com/js/th/l6Uq80DUFD-x1jz5nF8meFd9YEU5Td6Dxl4bis5MmHU.js 1,2,1439391718,0 predictor::https://addons.cdn.mozilla.net/static/img/impala/button-icons.png?76a8a6e 1,2,1439391718,0 predictor::https://addons.cdn.mozilla.net/static/img/impala/banner-close.png?b330fed 1,1,1439391702,0 predictor::https://www.google.com/recaptcha/api/reload?c=03AHJ_Vuu8_69fm7vip4or_IzdTiZsZeFvReAHzrN7faCIS9pwOkYYKuho6TYuAuwAu4XklSV82GssI4q9QxsYLqW45-Kje87Z7GGoje1iiM9Ts-64U9yii671lJTNINCUW-k53Wpd0GOUDrwnt9J6F4VMOb1LLKaES0Copd8aFuURJpBfn0gA30LNYrqTr0jaKhTjc6RO6P8beK21-PjLO_r4Ax1rit0r8w&k=6LcHh9gSAAAAAJ_BAPRKKBdXUZwgERi7iwQVjIna&reason=i&type=image&lang=en-GB&th=,oVCwkGztd1T46Ly2ib7yGRvb1LfwAAAAIaAAAAAD2ADNCHhnXPpBkqZZvoZ3M-sB_IC3BsDw3p7Fts1oJaiiXSYjVpnknS-jQxLjwd0jX2JFlvJOtG-upwfPqoqi4q9t98y2ns8xu_UG98qlKKgzNphxgpEG4Eh0oyIBMtZfSJT4R0fuEHaMSfYyqH_yHgvY-Xa3by9p4Vp72hPYCbyC9iGOffU4L4xViVvjSDWVom7OxpZAYqo1m3W04nfzAxZU5LVOw9XptfhPys4UlvLKPRcq0ayjnC7B2YIM_UuE-nK83sJSM-KcZ2DyFMIEzg 1,1,1439391702,0 predictor::https://addons.cdn.mozilla.net/user-media/addon_icons/4/4336-32.png?modified=1337297368 1,2,1439391718,0 predictor::https://addons.cdn.mozilla.net/user-media/addon_icons/8/8352-32.png?modified=1394364041 1,2,1439391718,0 predictor::https://addons.cdn.mozilla.net/user-media/addon_icons/46/46698-32.png?modified=1386639399 1,2,1439391718,0 predictor::https://addons.cdn.mozilla.net/user-media/addon_icons/90/90992-32.png?modified=1298481907 1,2,1439391718,0 predictor::https://addons.cdn.mozilla.net/user-media/addon_icons/122/122179-32.png?modified=1321574288 1,2,1439391718,0 predictor::https://addons.cdn.mozilla.net/user-media/addon_icons/161/161982-32.png?modified=1365975045 1,2,1439391718,0 predictor::https://addons.cdn.mozilla.net/user-media/collection_icons/0/2.png?m=1439305696 1,2,1439391718,0 predictor::https://addons.cdn.mozilla.net/static/img/icons/collection.png 1,2,1439391718,0 predictor::https://addons.cdn.mozilla.net/user-media/collection_icons/32/32177.png?m=1439213021 1,2,1439391718,0 predictor::https://addons.cdn.mozilla.net/user-media/addon_icons/0/869-32.png?modified=1309353639 1,2,1439391718,0 predictor::https://addons.cdn.mozilla.net/user-media/addon_icons/1/1455-32.png?modified=1310112015 1,2,1439391718,0 predictor::https://addons.cdn.mozilla.net/user-media/addon_icons/2/2570-32.png?modified=1353925085 1,2,1439391718,0 predictor::https://addons.cdn.mozilla.net/user-media/addon_icons/5/5230-32.png?modified=1371475254 1,2,1439391718,0 predictor::https://addons.cdn.mozilla.net/static/img/impala/stars.png?5f99704 1,2,1439391718,0 predictor::https://www.google.com/recaptcha/api/image?c=03AHJ_VutIQOC56ODD6uqQh5U8RYlKRIGXbQ4o3lCPpoyjAJfZTBfCPWuf37nvhzkSn_MHeZ6RUD7DGTyGFgKVYPl7s1v0HDVOsP5FzaTbddVB8Wm1HN53NHS_c-Vvkti-b6eUSdR8kfu2mG0wsDbfyPUkU7CUJAyezrWOyf3yTzHcjhzSDJJXRYJfm4AODdGqKcE2QyUU0nDA&th=,tEWwkGztd1T46Ly2ib7yGRvb1LfwAAAAIaAAAAAC2ADNCHhnXPpBkqZZvoZ3M-sB_IC3BsDw3p7Fts1oJaiiXSYjVpnknS-jQxLjwd0jX2JFlvJOtG-upwfPqoqi4q9t98y2ns8xu_UG98qlKKgzNphxgpEG4Eh0oyIBMtZfSJT4R0fuEHaMSfYyqH_yHgvY-Xa3by9p4Vp72hPYCbyC9iGOffU4L4xViVvjSDWVom7OxpZAYqo1m3W04nfzAxZU5LVOw9XptfhPys4UlvLKPRcq0ayjnC7B2YIM_UuE-nK83snQM-cmbMXFBb3fzA 1,1,1439391702,0 predictor::https://ssl.google-analytics.com/__utm.gif?utmwv=5.6.6&utms=2&utmn=55032931&utmhn=addons.mozilla.org&utmt=event&utme=5(AMO%20Addon%20%2F%20Theme%20Installs*addon*Greasemonkey)&utmcs=UTF-8&utmsr=1920x1080&utmvp=1409x653&utmsc=24-bit&utmul=en-gb&utmje=0&utmfl=-&utmdt=Greasemonkey%20%3A%3A%20Add-ons%20for%20Firefox&utmhid=1862687399&utmr=https%3A%2F%2Fwww.google.ca&utmp=%2Fen-US%2Ffirefox%2Faddon%2Fgreasemonkey%2F&utmht=1439391709574&utmac=UA-36116321-7&utmcc=__utma%3D164683759.1716834091.1439391554.1439391704.1439391704.1%3B%2B__utmz%3D164683759.1439391704.1.1.utmcsr%3Dgoogle%7Cutmccn%3D(organic)%7Cutmcmd%3Dorganic%7Cutmctr%3D(not%2520provided)%3B&utmjid=&utmu=6AAAAAAAAAAAAAAAAAABAAQE~ 1,1,1439391702,0 predictor::resource-count 3 predictor::https://ssl.google-analytics.com/__utm.gif?utmwv=5.6.6&utms=3&utmn=359775058&utmhn=addons.mozilla.org&utmcs=UTF-8&utmsr=1920x1080&utmvp=1409x686&utmsc=24-bit&utmul=en-gb&utmje=0&utmfl=-&utmdt=Greasemonkey%20%3A%3A%20Add-ons%20for%20Firefox&utmhid=1802682517&utmr=https%3A%2F%2Fwww.google.ca&utmp=%2Fen-US%2Ffirefox%2Faddon%2Fgreasemonkey%2F&utmht=1439391718990&utmac=UA-36116321-7&utmcc=__utma%3D164683759.1716834091.1439391554.1439391704.1439391704.1%3B%2B__utmz%3D164683759.1439391704.1.1.utmcsr%3Dgoogle%7Cutmccn%3D(organic)%7Cutmcmd%3Dorganic%7Cutmctr%3D(not%2520provided)%3B&utmjid=&utmu=qAAAAAAAAAAAAAAAAAAAAAQE~ 1,1,1439391718,0 predictor::https://www.google.com/recaptcha/api/reload?c=03AHJ_VuvBFBCJZ7bh0prOhldxwjNidr3lAWOg1S6IWdh7-nBcJ2ZrMMA-ooo1QWYXVESgVlY4ockM7HhCJV9XC6up6WWtpVupDSgH5mXpKRESt44HYHDAFQQWh_3ZeLVRcUdkVaJ5Ckz4B50FJ_In_ZWq5jNtL_6WSTVuCdrPOmfKZmcKkg5ASbxn4Zsx3pomrSowHi3uPhTxMdH2UxzxTEV1pomcWueuJw&k=6LcHh9gSAAAAAJ_BAPRKKBdXUZwgERi7iwQVjIna&reason=i&type=image&lang=en-GB&th=,5hewuzAd260KFOu2meAUeG05hwfwAAAAF6AAAAAE2ADNfQoHCa7on31SoETlmaA9NJcJY2DzIqe4aUSnsZcmcw0_2Pafold1329cKlFBtoAm68Kc3O3jEowDP-rXO3uVl2Oz39K_VCrviFBIrU9XxEDy5mXVkLiVmXIEG0EJ3Z2IiMy08KTXrXREYAkYoHLbBcGoKTuIm7l0ViwrF_cH6iQbLQD0YQXW6H9C9I8_KQwmz7B--HekaD6md90lgc4IixD_wCGyWeMgO9WYe0HSkATG81jOu7V9UB9m5FVdP7WSw9rnpiI7UpovX9mMag 1,1,1439391718,0 predictor::https://www.google.com/recaptcha/api/image?c=03AHJ_VuvUsEriZcxDWYzSo_E0B0ksy2huGhlRMPb0PoL_fBWhsjy7LWEYVvx9kWwk-04EfIGrSuTLs0-ES7kfQaE_0jawBxxOdKg1MeeZ5woYq2F2ikKeLBjSQOT3_BU8k1Fa4KlwsvIio_8G_jAeTyYh7gDUJ0ImYTvCNPKVC6qewYJOjhvEkeGKy7o-wQ1ooeR6qJk2bax6&th=,BPWwuzAd260KFOu2meAUeG05hwfwAAAAF6AAAAAD2ADNfQoHCa7on31SoETlmaA9NJcJY2DzIqe4aUSnsZcmcw0_2Pafold1329cKlFBtoAm68Kc3O3jEowDP-rXO3uVl2Oz39K_VCrviFBIrU9XxEDy5mXVkLiVmXIEG0EJ3Z2IiMy08KTXrXREYAkYoHLbBcGoKTuIm7l0ViwrF_cH6iQbLQD0YQXW6H9C9I8_KQwmz7B--HekaD6md90lgc4IixD_wCGyWeMgO9WYe0HSkATG81jOu7V9UB9m5FVdP7WSw915pmb7bElKAhIyXQ 1,1,1439391718,0   �|
