@@ -7,12 +7,12 @@ Created on Fri Jul 31 10:34:51 2015
 
 
 # THINGS TO CHANGE:
-csvName = "Pearsall Independent School District2.csv"
-oldSite = "http://www.pearsallisd.org//"
-startingPage = "http://pearsall.ss8.sharpschool.com/cms/One.aspx?portalId=777834&pageId=777842"
-loginPage = "http://pearsall.ss8.sharpschool.com/gateway/Login.aspx?ReturnUrl=%2f"
-divName = 'articleBody'
-divNameBackUp = 'content2'
+csvName = "Stafford MSD Content Migration 2015.csv"
+oldSite = "http://staffordmsd.org/"
+startingPage = "http://staffordmsd.ss8.sharpschool.com/cms/One.aspx?portalId=895956&pageId=895964"
+loginPage = "http://staffordmsd.ss8.sharpschool.com/gateway/Login.aspx?ReturnUrl=%2f"
+divName = 'rightin'
+divNameBackUp = 'right'
 
 
 from bs4 import BeautifulSoup
@@ -36,13 +36,11 @@ def csvCheck():
     lineNum = 0
    
     while True:
-        checkcelLine = checkcel.readline().rstrip()
+        checkcelLine = checkcel.readline().strip(' ,"\n')
         lineNum += 1
-        
-        if checkcelLine == "":
+
+        if checkcelLine == '':
             break
-        
-        checkcelLine = checkcelLine.strip(' ,"')        
         
         pageChar = checkcelLine[0]
         if str(pageChar).isdigit() :
@@ -170,7 +168,7 @@ def ext_page(nameAndLink):
         # switch to the frame inside the window
         driver.switch_to.frame("browser")
         # search for the page name and choose the first result which shows up
-        driver.find_element_by_id(getID(driver, "ctl00_ContentPlaceHolder1_ctl00_txtSearchField")).send_keys(name)
+        driver.find_element_by_id(getID(driver, "ctl00_ContentPlaceHolder1_ctl00_txtSearchField")).send_keys(link)
         driver.find_element_by_id(getID(driver, "ctl00_ContentPlaceHolder1_ctl00_btnSearch")).click()
         driver.find_element_by_id("ctl00_ContentPlaceHolder1_ctl00_gvGridView_ctl02_hplInsert").click()
         # switch back to the original Add Link window
@@ -198,10 +196,14 @@ def content_page(nameAndLink):
         html = result.read()
         soup = BeautifulSoup(html, "lxml")
         content = soup.select('div#' + divName)
-        if (str(content) == None or str(content) == ''):
+
+        if (not content):
             content = soup.find('div', id_ = divName)
-            if (str(content) == None or str(content) == ''):
+            if (not content):
                 content = soup.find('div', id_ = divNameBackUp)
+                if (not content):
+                    content = soup.select('div#' + divNameBackUp)
+        
         
         content.append("")
         content = str(content[0])
@@ -308,7 +310,7 @@ while True:
     #isOldPage = False    
     
     # read in the next line from the Excel sheet
-    excelLine = excelSheet.readline().rstrip()
+    excelLine = excelSheet.readline().rstrip(' ,"\n')
     
     # Check if the file is done (first blank line)
     if excelLine == "":
@@ -415,6 +417,8 @@ while True:
     elif pageChar == '0' or pageChar == '8':
         #dupPageCheck(nameAndLink[0])
         content_page(nameAndLink)
+    else:
+        print("2nd step: " + str(nameAndLink))
 
         
     pagePath.append(driver.current_url)
