@@ -7,9 +7,9 @@ Created on Fri Jul 31 10:34:51 2015
 
 
 # THINGS TO CHANGE:
-csvName = "Stafford MSD Content Migration 2015.csv"
+csvName = "Stafford MSD Content Migration 2015 3.csv"
 oldSite = "http://staffordmsd.org/"
-startingPage = "http://staffordmsd.ss8.sharpschool.com/cms/One.aspx?portalId=895956&pageId=895964"
+startingPage = "http://staffordmsd.ss8.sharpschool.com/cms/One.aspx?portalId=895956&pageId=1598173"
 loginPage = "http://staffordmsd.ss8.sharpschool.com/gateway/Login.aspx?ReturnUrl=%2f"
 divName = 'rightin'
 divNameBackUp = 'right'
@@ -36,7 +36,8 @@ def csvCheck():
     lineNum = 0
    
     while True:
-        checkcelLine = checkcel.readline().strip(' ,"\n')
+        checkcelLine = checkcel.readline().rstrip(' ,\n')
+        checkcelLine = checkcel.readline().lstrip(' ,"\n')
         lineNum += 1
 
         if checkcelLine == '':
@@ -168,8 +169,11 @@ def ext_page(nameAndLink):
         # switch to the frame inside the window
         driver.switch_to.frame("browser")
         # search for the page name and choose the first result which shows up
-        driver.find_element_by_id(getID(driver, "ctl00_ContentPlaceHolder1_ctl00_txtSearchField")).send_keys(link)
+        searchBar = driver.find_element_by_id(getID(driver, "ctl00_ContentPlaceHolder1_ctl00_txtSearchField"))
+        searchBar.send_keys(Keys.CONTROL + "a")
+        searchBar.send_keys(link)
         driver.find_element_by_id(getID(driver, "ctl00_ContentPlaceHolder1_ctl00_btnSearch")).click()
+        time.sleep(3)
         driver.find_element_by_id("ctl00_ContentPlaceHolder1_ctl00_gvGridView_ctl02_hplInsert").click()
         # switch back to the original Add Link window
         driver.switch_to_window(driver.window_handles[-1])
@@ -188,54 +192,61 @@ def content_page(nameAndLink):
     url = nameAndLink[1]
     #global isOldPage
     #if isOldPage:
+    
+    content =[]
         
     # copy content from old site
-    if not (url==None or url.lower()=="new page"):
-        request = urllib.request.Request(url)
-        result = urllib.request.urlopen(request)
-        html = result.read()
-        soup = BeautifulSoup(html, "lxml")
-        content = soup.select('div#' + divName)
-
-        if (not content):
-            content = soup.find('div', id_ = divName)
-            if (not content):
-                content = soup.find('div', id_ = divNameBackUp)
-                if (not content):
-                    content = soup.select('div#' + divNameBackUp)
-        
-        
-        content.append("")
-        content = str(content[0])
-        
-        """
-        if content.find('src="/') ==-1 or content.find('src="' + oldSite)==-1 :
-            content = content.replace('src="', 'src="' + oldSite)
-        else:    
-            content = content.replace('src="/', 'src="' + oldSite)
-        """
-        content = content.replace('src="/', 'src="' + oldSite)
-        content = content.replace('href="/', 'href="' + oldSite)
-        
-        # In case page with same name exists
-        dupPageCheck(name)
-        
-        # paste the code into the HTML editor
-        driver.find_element_by_class_name("reMode_html").click()
-        textbox = driver.find_elements_by_tag_name("iframe")[1]
-        time.sleep(1)
-        pyperclip.copy(content)
-        textbox.send_keys(Keys.CONTROL + "a")
-        textbox.send_keys(Keys.CONTROL + "v")
-        
-        # Extension things
-        driver.find_element_by_id(getID(driver, "loadBtn")).click()
-        WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.ID, getID(driver, "stripBtn"))))
-        driver.find_element_by_id(getID(driver, "stripBtn")).click()
-        WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.ID, getID(driver, "startBtn"))))
-        driver.find_element_by_id(getID(driver, "startBtn")).click()
-        WebDriverWait(driver, 1000000).until(EC.element_to_be_clickable((By.ID, getID(driver, "startBtn"))))
+    try:
+        if not (url==None or url.lower()=="new page"):
+            request = urllib.request.Request(url)
+            result = urllib.request.urlopen(request)
+            html = result.read()
+            soup = BeautifulSoup(html, "lxml")
+            content = soup.select('div#' + divName)
     
+            if (not content):
+                content = soup.find('div', id_ = divName)
+                if (not content):
+                    content = soup.find('div', id_ = divNameBackUp)
+                    if (not content):
+                        content = soup.select('div#' + divNameBackUp)
+                        if (not content):
+                            content = soup.select('div#centerin')
+                            if (not content):
+                                content = soup.find('div', id_ = 'centerin')
+    
+            content.append("")
+            content = str(content[0])
+            
+            """
+            if content.find('src="/') ==-1 or content.find('src="' + oldSite)==-1 :
+                content = content.replace('src="', 'src="' + oldSite)
+            else:    
+                content = content.replace('src="/', 'src="' + oldSite)
+            """
+            content = content.replace('src="/', 'src="' + oldSite)
+            content = content.replace('href="/', 'href="' + oldSite)
+            
+            # In case page with same name exists
+            dupPageCheck(name)
+            
+            # paste the code into the HTML editor
+            driver.find_element_by_class_name("reMode_html").click()
+            textbox = driver.find_elements_by_tag_name("iframe")[1]
+            time.sleep(1)
+            pyperclip.copy(content)
+            textbox.send_keys(Keys.CONTROL + "a")
+            textbox.send_keys(Keys.CONTROL + "v")
+            
+            # Extension things
+            driver.find_element_by_id(getID(driver, "loadBtn")).click()
+            WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.ID, getID(driver, "stripBtn"))))
+            driver.find_element_by_id(getID(driver, "stripBtn")).click()
+            WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.ID, getID(driver, "startBtn"))))
+            driver.find_element_by_id(getID(driver, "startBtn")).click()
+            WebDriverWait(driver, 1000000).until(EC.element_to_be_clickable((By.ID, getID(driver, "startBtn"))))
+    except:
+        print("Error with content copying at " + name)
     # publish the page
     driver.find_element_by_id(getID(driver, "ctl00_ContentPlaceHolder1_ctl00_ibPublishBottom")).click()
     #if not isOldPage:
@@ -265,7 +276,12 @@ def getID(driver, baseID):
 # Separate page name and old site URL 
     #nameAndLink[0] is the name, nameAndLink[1] is the link
 def splitLine(excelLine):
-    nameAndLink = excelLine.rsplit(',', 1)
+    print(excelLine)
+    if excelLine[-1] == '"':
+        nameAndLink = excelLine.rstrip('"').rsplit('"', 1)
+        print(nameAndLink)
+    else:
+        nameAndLink = excelLine.rsplit(',', 1)
     
     nameAndLink[0] = nameAndLink[0].strip(' ,"')
     nameAndLink[0] = nameAndLink[0].replace("\"\"","\"")
@@ -310,7 +326,7 @@ while True:
     #isOldPage = False    
     
     # read in the next line from the Excel sheet
-    excelLine = excelSheet.readline().rstrip(' ,"\n')
+    excelLine = excelSheet.readline().rstrip(' ,\n')
     
     # Check if the file is done (first blank line)
     if excelLine == "":
@@ -341,7 +357,7 @@ while True:
     pagePath.append(currPage)
     currCommaCount = commaCount
     
-    excelLine = excelLine.strip(' ,"')
+    excelLine = excelLine.lstrip(' ,"')
     # Check for type of page we want:
     # 0 - Content Space
     # 1 - External Link
