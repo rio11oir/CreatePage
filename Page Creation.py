@@ -8,11 +8,12 @@ Created on Fri Jul 31 10:34:51 2015
 
 # THINGS TO CHANGE:
 csvName = "Stafford MSD Content Migration 2015 3.csv"
-oldSite = "http://staffordmsd.org/"
-startingPage = "http://staffordmsd.ss8.sharpschool.com/cms/One.aspx?portalId=895956&pageId=1598173"
-loginPage = "http://staffordmsd.ss8.sharpschool.com/gateway/Login.aspx?ReturnUrl=%2f"
-divName = 'rightin'
-divNameBackUp = 'right'
+oldSite = "http://www.collieryouthservices.org/"
+startingPage = "http://collieryouthservices.ss8.sharpschool.com/cms/One.aspx?portalId=715612&pageId=715620"
+loginPage = "http://collieryouthservices.ss8.sharpschool.com/gateway/Login.aspx?ReturnUrl=%2f"
+#divName = 'ctl00_ctl00_MasterContent_ContentColumnRight_divMainContent'
+#divNameBackUp = 'mPadding'
+divName = ['ctl00_ctl00_MasterContent_ContentColumnRight_divMainContent', 'mPadding', 'Right2Column']
 
 
 from bs4 import BeautifulSoup
@@ -202,8 +203,18 @@ def content_page(nameAndLink):
             result = urllib.request.urlopen(request)
             html = result.read()
             soup = BeautifulSoup(html, "lxml")
+            
+            
+            for x in range(0,len(divName)-1):
+                if (not content):                
+                    content = soup.select('div#' + divName[x])
+                    if (not content):
+                        content = soup.find('div', id_ = divName[x])
+                else:
+                    break
+            
+            """
             content = soup.select('div#' + divName)
-    
             if (not content):
                 content = soup.find('div', id_ = divName)
                 if (not content):
@@ -214,6 +225,7 @@ def content_page(nameAndLink):
                             content = soup.select('div#centerin')
                             if (not content):
                                 content = soup.find('div', id_ = 'centerin')
+            """
     
             content.append("")
             content = str(content[0])
