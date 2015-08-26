@@ -7,13 +7,13 @@ Created on Fri Jul 31 10:34:51 2015
 
 
 # THINGS TO CHANGE:
-csvName = "Stafford MSD Content Migration 2015 3.csv"
-oldSite = "http://www.collieryouthservices.org/"
-startingPage = "http://collieryouthservices.ss8.sharpschool.com/cms/One.aspx?portalId=715612&pageId=715620"
-loginPage = "http://collieryouthservices.ss8.sharpschool.com/gateway/Login.aspx?ReturnUrl=%2f"
+csvName = "Oxford Community Schools.csv"
+oldSite = "http://danielaxford.oxfordschools.org"
+startingPage = "http://ocsohs.ss8.sharpschool.com/cms/One.aspx?portalId=734844&pageId=734852"
+loginPage = "http://ocsohs.ss8.sharpschool.com/gateway/Login.aspx?ReturnUrl=%2f"
 #divName = 'ctl00_ctl00_MasterContent_ContentColumnRight_divMainContent'
 #divNameBackUp = 'mPadding'
-divName = ['ctl00_ctl00_MasterContent_ContentColumnRight_divMainContent', 'mPadding', 'Right2Column']
+divName = ["posts-block col-lg-9 col-md-9 col-sm-8 col-xs-12", 'main2']
 
 
 from bs4 import BeautifulSoup
@@ -204,16 +204,16 @@ def content_page(nameAndLink):
             html = result.read()
             soup = BeautifulSoup(html, "lxml")
             
-            
-            for x in range(0,len(divName)-1):
-                if (not content):                
+            for x in range(0,len(divName)):
+                if (not content):
                     content = soup.select('div#' + divName[x])
                     if (not content):
-                        content = soup.find('div', id_ = divName[x])
+                        content = soup.find_all('div', class_ = divName[x])
                 else:
-                    break
+                    break      
             
             """
+            html.js.js.flexbox.canvas.canvastext.webgl.no-touch.geolocation.postmessage.no-websqldatabase.indexeddb.hashchange.history.draganddrop.websockets.rgba.hsla.multiplebgs.backgroundsize.borderimage.borderradius.boxshadow.textshadow.opacity.cssanimations.csscolumns.cssgradients.no-cssreflections.csstransforms.csstransforms3d.csstransitions.fontface.generatedcontent.video.audio.localstorage.sessionstorage.webworkers.applicationcache.svg.inlinesvg.smil.svgclippaths.wf-opensanscondensed-n7-inactive.wf-opensanscondensed-n3-inactive.wf-opensanscondensed-i3-inactive.wf-inactive body.page div.wrap div#main2 div.content div.container div.row div.posts-block.col-lg-9.col-md-9.col-sm-8.col-xs-12
             content = soup.select('div#' + divName)
             if (not content):
                 content = soup.find('div', id_ = divName)
@@ -226,7 +226,6 @@ def content_page(nameAndLink):
                             if (not content):
                                 content = soup.find('div', id_ = 'centerin')
             """
-    
             content.append("")
             content = str(content[0])
             
@@ -250,20 +249,26 @@ def content_page(nameAndLink):
             textbox.send_keys(Keys.CONTROL + "a")
             textbox.send_keys(Keys.CONTROL + "v")
             
-            # Extension things
-            driver.find_element_by_id(getID(driver, "loadBtn")).click()
-            WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.ID, getID(driver, "stripBtn"))))
-            driver.find_element_by_id(getID(driver, "stripBtn")).click()
-            WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.ID, getID(driver, "startBtn"))))
-            driver.find_element_by_id(getID(driver, "startBtn")).click()
-            WebDriverWait(driver, 1000000).until(EC.element_to_be_clickable((By.ID, getID(driver, "startBtn"))))
+        # Extension things
+        driver.find_element_by_id(getID(driver, "loadBtn")).click()
+        WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.ID, getID(driver, "stripBtn"))))
+        driver.find_element_by_id(getID(driver, "stripBtn")).click()
+        WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.ID, getID(driver, "startBtn"))))
+        driver.find_element_by_id(getID(driver, "startBtn")).click()
+        WebDriverWait(driver, 1000000).until(EC.element_to_be_clickable((By.ID, getID(driver, "startBtn"))))
+            
+    
     except:
         print("Error with content copying at " + name)
+
+           
+    
     # publish the page
     driver.find_element_by_id(getID(driver, "ctl00_ContentPlaceHolder1_ctl00_ibPublishBottom")).click()
     #if not isOldPage:
     WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID, getID(driver, "ctl00_ContentPlaceHolder1_ctl00_btnYes"))))
     driver.find_element_by_id(getID(driver, "ctl00_ContentPlaceHolder1_ctl00_btnYes")).click()
+    
 
     
 # Get the correct ID for buttons/links
@@ -288,10 +293,8 @@ def getID(driver, baseID):
 # Separate page name and old site URL 
     #nameAndLink[0] is the name, nameAndLink[1] is the link
 def splitLine(excelLine):
-    print(excelLine)
     if excelLine[-1] == '"':
         nameAndLink = excelLine.rstrip('"').rsplit('"', 1)
-        print(nameAndLink)
     else:
         nameAndLink = excelLine.rsplit(',', 1)
     
