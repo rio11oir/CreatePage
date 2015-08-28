@@ -7,13 +7,13 @@ Created on Fri Jul 31 10:34:51 2015
 
 
 # THINGS TO CHANGE:
-csvName = "Oxford Community Schools.csv"
-oldSite = "http://danielaxford.oxfordschools.org"
-startingPage = "http://ocsohs.ss8.sharpschool.com/cms/One.aspx?portalId=734844&pageId=734852"
-loginPage = "http://ocsohs.ss8.sharpschool.com/gateway/Login.aspx?ReturnUrl=%2f"
+csvName = "NashobaRegional_SharpSchool_content_migration_form_2015 v2.csv"
+oldSite = 'http://sawyer.nrsd.net/' + '/'
+startingPage = "http://nashobasawyer.ss8.sharpschool.com/cms/One.aspx?portalId=1160494&pageId=1160502"
+loginPage = "http://nashobasawyer.ss8.sharpschool.com/gateway/Login.aspx?ReturnUrl=%2f"
 #divName = 'ctl00_ctl00_MasterContent_ContentColumnRight_divMainContent'
 #divNameBackUp = 'mPadding'
-divName = ["posts-block col-lg-9 col-md-9 col-sm-8 col-xs-12", 'main2']
+divName = ['newsInterior', 'content']
 
 
 from bs4 import BeautifulSoup
@@ -158,7 +158,7 @@ def ext_page(nameAndLink):
         # enter the web address
         driver.find_element_by_id(getID(driver, "ctl00_ContentPlaceHolder1_ctl00_txtUrl")).send_keys(link)
         driver.find_element_by_id(getID(driver, "chkBtn")).click()
-        WebDriverWait(driver, 10000).until(EC.text_to_be_present_in_element_value((By.ID, 'statusBox'), 'Done'))
+        WebDriverWait(driver, 100000).until(EC.text_to_be_present_in_element_value((By.ID, 'statusBox'), 'Done'))
         EC.text_to_be_present_in_element_value
     elif pageType == '2':
         # click the 'Browse Internal Pages' button
@@ -170,11 +170,13 @@ def ext_page(nameAndLink):
         # switch to the frame inside the window
         driver.switch_to.frame("browser")
         # search for the page name and choose the first result which shows up
+        WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID, "ctl00_ContentPlaceHolder1_ctl00_txtSearchField")))
         searchBar = driver.find_element_by_id(getID(driver, "ctl00_ContentPlaceHolder1_ctl00_txtSearchField"))
         searchBar.send_keys(Keys.CONTROL + "a")
         searchBar.send_keys(link)
         driver.find_element_by_id(getID(driver, "ctl00_ContentPlaceHolder1_ctl00_btnSearch")).click()
         time.sleep(3)
+        WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID, "ctl00_ContentPlaceHolder1_ctl00_gvGridView_ctl02_hplInsert")))
         driver.find_element_by_id("ctl00_ContentPlaceHolder1_ctl00_gvGridView_ctl02_hplInsert").click()
         # switch back to the original Add Link window
         driver.switch_to_window(driver.window_handles[-1])
